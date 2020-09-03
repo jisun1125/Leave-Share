@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.chahine:pageindicator:0.2.8@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9185a3fbd7ffb412ec40c429c4a3b6fd/pageindicator-0.2.8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9185a3fbd7ffb412ec40c429c4a3b6fd/pageindicator-0.2.8/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chahine/pageindicator/0.2.8/b86b9e708def96c9389faf7ca317f6060a8f0d1/pageindicator-0.2.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

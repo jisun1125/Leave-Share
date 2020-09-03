@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kr.ac.kumoh.s20171278.map_map_challenge">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_mapmap"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_mapmap_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".select.main.SelectTapActivity" />
+        <activity android:name=".share.main.ShareLoginActivity" />
+        <activity android:name=".album.main.AlbumTabActivity" />
+        <activity android:name=".ui.main.SharedAlbumActivity" />
+        <activity android:name=".ui.main.SharedTabActivity" />
+        <activity android:name=".album.main.AlbumListActivity" />
+        <activity
+            android:name=".album.main.AlbumDetailMemoActivity"
+            android:theme="@style/Theme.MyDialog" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".MainLoginActivity"/>
+        <activity
+            android:name=".main.DetailMemoActivity"
+            android:theme="@style/Theme.MyDialog" />
+        <activity
+            android:name=".SelectImagePopupActivity"
+            android:theme="@style/Theme.MyDialog" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB4z-iv5PlCuuV2-e3-A4gxvOMOeP8KnYM" />
+
+        <activity
+            android:name="com.zfdang.multiple_images_selector.ImagesSelectorActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".SelectImageActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".main.MainTabActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="example.com"
+                    android:scheme="http" />
+                <data
+                    android:host="example.com"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".share.main.ShareTapActivity" />
+    </application>
+
+</manifest>
