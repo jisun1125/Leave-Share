@@ -1,0 +1,4 @@
+*.java linguist-vendored
+*.kt linguist-detectable=true
+*.py linguist-detectable=true
+*.xml linguist-detectable=false
