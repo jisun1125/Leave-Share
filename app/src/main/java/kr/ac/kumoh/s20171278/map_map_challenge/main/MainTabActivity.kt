@@ -83,6 +83,8 @@ class MainTabActivity : AppCompatActivity() {
                     val s: String? = albumData.get(i).site
                     val d: String? = albumData.get(i).date
                     var image: ArrayList<String>? = arrayListOf()
+                    var docidx: Int? = albumData.get(i).docId
+                    Log.d("aaa MainTab AlbumUpload", "docidx: " + docidx.toString() + ", i: " + i.toString())
                     image = albumData.get(i).imageArray
                     var downimage: Int = 0
                     for (j in 0 until image!!.size) {
@@ -99,7 +101,7 @@ class MainTabActivity : AppCompatActivity() {
                             downimage += 1
                             if (image.size == downimage) {
                                 db.collection("user").document("$userUid")
-                                    .collection(albumName).document()
+                                    .collection(albumName).document(docidx.toString())
                                     .set(albumData.get(i)).addOnSuccessListener { result ->
                                         saveCnt += 1
 

@@ -32,6 +32,7 @@ class AlbumTabActivity : AppCompatActivity() {
         const val KEY_USER_UID = "keyUserUid"
         const val KEY_SHARED_ALBUM_NAME = "keySharedAlbumName"
         const val SEGMENT_USER = "segmentUser"
+        const val KEY_SHARED_ALBUM_INDEX = "keySHaredAlbumIndex"
         const val SEGMENT_ALBUM = "segmentAlbum"
     }
 

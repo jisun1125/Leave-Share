@@ -33,6 +33,7 @@ import kr.ac.kumoh.s20171278.map_map_challenge.SelectImageActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.SelectImageActivity.Companion.ALBUM_DATA
 import kr.ac.kumoh.s20171278.map_map_challenge.SelectImageActivity.Companion.KEY_ALBUM_NAME
 import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity
+import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity.Companion.KEY_SHARED_ALBUM_INDEX
 import kotlin.collections.arrayListOf as arrayListOf1
 
 
@@ -47,7 +48,8 @@ class SelectAlbumMemoFragment : Fragment(){
     var shareUserName: String? = null
 
     private var selectArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf1()
-
+    private var selectIdxArray: ArrayList<String> = arrayListOf1()
+    private var selectIdx: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,44 +81,26 @@ class SelectAlbumMemoFragment : Fragment(){
         mAdapter.notifyDataSetChanged()
 
         btnShareOk.setOnClickListener {
-            // select 상태가 true인 것만 저장
-            // 선택되면 1 아니면 0
+            // 체크박스에서 선택한 메모 docId를 selectIdx에 쉼표로 구분해 String으로 추가함
             for (i in 0 until albumData.size)
                 if (albumData[i].select==1){
-                    selectArray.add(albumData[i])
+                    selectIdx += albumData[i].docId.toString() + ','
                 }
-
-            // 공유하는 사람으로 변경
-            for (j in 0 until selectArray.size){
-                selectArray[j].shareUser = shareUserName
-                selectArray[j].shareUserUid = userUid
-            }
-
-            db.collection("user").document(userUid.toString())
-                    .update("shareAlbumList", FieldValue.arrayUnion(albumName))
-            for (i in 0 until selectArray.size){
-                db.collection("user").document(userUid.toString())
-                    .collection("S]$albumName").document()
-                    .set(selectArray[i]).addOnSuccessListener { result ->
-                        Log.d("aaaa saveAlbum", "${i}번째 공유할 앨범 업로드")
-                    }
-                    .addOnFailureListener { exception ->
-                        Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
-                        Log.w("aaaa saveAlbum", "Error getting documents: ", exception)
-                    }
-                Toast.makeText(context, "공유할 앨범 업로드 완료", Toast.LENGTH_SHORT).show()
-            }
             generateContentLink()
         }
     }
 
     private fun getShareDeepLink(): Uri {
-        return Uri.parse("https://example.com/${AlbumTabActivity.SEGMENT_USER}?${AlbumTabActivity.KEY_USER_UID}=${userUid}&${AlbumTabActivity.KEY_SHARED_ALBUM_NAME}=${albumName}")
+        return Uri.parse("https://example.com/${AlbumTabActivity.SEGMENT_USER}?" +
+                "${AlbumTabActivity.KEY_USER_UID}=${userUid}&" +
+                "${AlbumTabActivity.KEY_SHARED_ALBUM_NAME}=${albumName}&" +
+                "${KEY_SHARED_ALBUM_INDEX}=${selectIdx}"
+        )
     }
 
     private fun generateContentLink() {
         val baseUrl = getShareDeepLink()
-        val domain = "https://mapmapchallenge.page.link"
+        val domain = "https://leaveshare.page.link"
         FirebaseDynamicLinks.getInstance()
             .createDynamicLink()
             .setLink(baseUrl)

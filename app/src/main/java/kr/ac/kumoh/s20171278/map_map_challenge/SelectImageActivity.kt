@@ -64,7 +64,8 @@ class SelectImageActivity : AppCompatActivity() {
                       var shareUser: String? = "",
                       var content: String? = "",
                       var title: String? = "",
-                      var tag: String? = ""
+                      var tag: String? = "",
+                      var docId: Int? = null
 
     ): Parcelable
     // shareUser: 공유한 사람 이름
@@ -240,7 +241,7 @@ class SelectImageActivity : AppCompatActivity() {
                 }
             }
             // 관광지 태깅
-            // 일단 태그 바로 아묻따 달아주는거로함
+            // 일단 태그 바로 달아줌
         }
     }
 
@@ -363,6 +364,7 @@ class SelectImageActivity : AppCompatActivity() {
         StempUriArray.add(dataArray[0].image.toString())
 
         StempPathArray.add(dataArray[0].path.toString())
+        var docIdCnd = 0
 
         if(dataArray.size == 1){  // 사진이 한 장이 경우
             if (dbTempSite.site.toString() == "주소없음"){
@@ -371,18 +373,20 @@ class SelectImageActivity : AppCompatActivity() {
             }else{
                 mArray.add(
                     dbSite(
-                        dbTempSite.site,
-                        StempUriArray,
-                        dbTempSite.date,
-                        albumName
+                        docId = docIdCnd,
+                        site = dbTempSite.site,
+                        imageArray = StempUriArray,
+                        date = dbTempSite.date,
+                        albumName = albumName
                     )
                 )
                 mPathArray.add(
                     dbSite(
-                        dbTempSite.site,
-                        StempPathArray,
-                        dbTempSite.date,
-                        albumName
+                        docId = docIdCnd,
+                        site = dbTempSite.site,
+                        imageArray = StempPathArray,
+                        date = dbTempSite.date,
+                        albumName = albumName
                     )
                 )
                 checkList.add(false)
@@ -390,27 +394,31 @@ class SelectImageActivity : AppCompatActivity() {
         }
 
         for (i in 1 until dataArray.size){
+            Log.d("aaa docIdCnd", docIdCnd.toString())
             if (dbTempSite.site != dataArray[i].site) {  // 장소가 다른 경우 || 장소가 같더라도 사진의 시간이 다른 경우
                 if (dbTempSite.site.toString() == "주소없음"){
                     continue
                 }else {
                     mArray.add(
                         dbSite(
-                            dbTempSite.site,
-                            StempUriArray,
-                            dbTempSite.date,
-                            albumName
+                            docId = docIdCnd,
+                            site = dbTempSite.site,
+                            imageArray = StempUriArray,
+                            date = dbTempSite.date,
+                            albumName = albumName
                         )
                     )
                     mPathArray.add(
                         dbSite(
-                            dbTempSite.site,
-                            StempPathArray,
-                            dbTempSite.date,
-                            albumName
+                            docId = docIdCnd,
+                            site = dbTempSite.site,
+                            imageArray = StempPathArray,
+                            date = dbTempSite.date,
+                            albumName = albumName
                         )
                     )
                     checkList.add(false)
+                    docIdCnd += 1
                 }
                 dbTempSite =
                     dbSite(
@@ -438,21 +446,24 @@ class SelectImageActivity : AppCompatActivity() {
                 }else{
                     mArray.add(
                         dbSite(
-                            dbTempSite.site,
-                            StempUriArray,
-                            dbTempSite.date,
-                            albumName
+                            docId = docIdCnd,
+                            site = dbTempSite.site,
+                            imageArray = StempUriArray,
+                            date = dbTempSite.date,
+                            albumName = albumName
                         )
                     )
                     mPathArray.add(
                         dbSite(
-                            dbTempSite.site,
-                            StempPathArray,
-                            dbTempSite.date,
-                            albumName
+                            docId = docIdCnd,
+                            site = dbTempSite.site,
+                            imageArray = StempPathArray,
+                            date = dbTempSite.date,
+                            albumName = albumName
                         )
                     )
                     checkList.add(false)
+                    docIdCnd += 1
                 }
             }
         }

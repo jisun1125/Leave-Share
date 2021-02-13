@@ -64,13 +64,7 @@ class SharedAlbumActivity : Fragment() {
 
 
     private fun setUpalbum(){
-        // progress Dialog 불러옴
-//        val progressDialog: ProgressDialog = ProgressDialog(context)
-//        progressDialog.setMessage("앨범 목록을 불러오는 중입니다.")
-//        progressDialog.setCancelable(true)
-//        progressDialog.setCanceledOnTouchOutside(false)
-//        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
-//        progressDialog.show()
+
         for (i in 0 until albumNameList.size){
             db.collection("user").document("S]$userUid")
                     .collection(albumNameList[i]).get()
@@ -86,7 +80,6 @@ class SharedAlbumActivity : Fragment() {
                         )
 
                         if (albumNameList.size == albumList.size){
-//                            progressDialog.dismiss()
                             adapterConnect()
                         }
 

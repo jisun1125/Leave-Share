@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\user\\Desktop\\leave&share_tourapi_final_layout_final\\leave&share_tourapi_final_layout_final\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "outputFile": "C:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\53583f6b157b91a73832a6a679376bbe\\jetified-play-services-appinvite-17.0.0\\res\\values-v11\\values.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\016c986fd7807224b256cdf8fabfdf54\\jetified-play-services-appinvite-17.0.0\\res\\values-v11\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

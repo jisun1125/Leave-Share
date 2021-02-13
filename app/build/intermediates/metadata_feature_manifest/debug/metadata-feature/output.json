@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "applicationId": "kr.ac.kumoh.s20171278.map_map_challenge",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "METADATA_FEATURE_MANIFEST"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 1,
+        "versionName": "1.0",
+        "outputFile": "app-debug.apk",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {}
+    }
+  ]
+}

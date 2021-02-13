@@ -29,6 +29,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -38,6 +39,7 @@ import kotlinx.android.synthetic.main.navigation_layout.*
 import kotlinx.android.synthetic.main.navigation_layout.view.*
 import kotlinx.android.synthetic.main.shared_activity_shared_album_item.*
 import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumListActivity
+import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity.Companion.KEY_SHARED_ALBUM_INDEX
 import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity.Companion.KEY_SHARED_ALBUM_NAME
 import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity.Companion.KEY_USER_UID
 import kr.ac.kumoh.s20171278.map_map_challenge.home.HomeSectionsPagerAdapter
@@ -72,6 +74,8 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     private lateinit var mMap: GoogleMap
     var shareUserUid: String? = null   // 공유한 회원의 uid
     var shareAlbumName: String? = null   // 공유한 앨범 이름
+    var shareAlbumIndex: String? = null  // 공유한 앨범 중 체크박스로 선택된 메모 리스트. doxId로 구성되있고 ,로 구분함
+    // ex) 0, 1, 3, 5번 메모를 선택한 경우 -> '0,1,3,5,'
     val auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,11 +91,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         viewPager.adapter = homeSectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
-
-//        //googleMap을 프래그먼트로 받아와서 띄움
-//        val gMapFragment: SupportMapFragment =
-//            supportFragmentManager.findFragmentById(R.id.mapview) as SupportMapFragment
-//        gMapFragment.getMapAsync(this)
 
         //툴바 설정
         setSupportActionBar(toolbar)
@@ -118,33 +117,8 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             showAlbumCreatePopup()
 
         }
-//
-//        btnAlbum.setOnClickListener{
-//            val intent = Intent(applicationContext, AlbumListActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        btnSAlbum.setOnClickListener {
-//            val intent = Intent(applicationContext, SharedAlbumActivity::class.java)
-//            startActivity(intent)
-//        }
 
-//        searchView.setOnQueryTextListener(
-//            object : SearchView.OnQueryTextListener {
-//                override fun onQueryTextSubmit(query: String): Boolean {
-//                    val intent = Intent(applicationContext, SearchActivity::class.java)
-//                    intent.putExtra("type", "all")
-//                    intent.putExtra("newText", query)
-//                    startActivity(intent)
-//
-//                    return false
-//                }
-//
-//                override fun onQueryTextChange(newText: String): Boolean {
-//                    return false
-//                }
-//            })
-
+        // 공유앨범 링크 수신
         let {
             userUid = auth.currentUser?.uid
             if (userUid!= null){
@@ -164,10 +138,12 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                             val segment: List<String>? = deepLink?.pathSegments
                             shareUserUid = deepLink?.getQueryParameter(KEY_USER_UID)
                             shareAlbumName = deepLink?.getQueryParameter(KEY_SHARED_ALBUM_NAME)
+                            shareAlbumIndex = deepLink?.getQueryParameter(KEY_SHARED_ALBUM_INDEX)
                             Log.d("aaaa deeplink", "shareuserUid: ${shareUserUid.toString()}")
                             Log.d("aaaa deeplink", "shareAlbumName: ${shareAlbumName.toString()}")
+                            Log.d("aaaa deep link", "sharedAlbumIndex: ${shareAlbumIndex}")
 
-                            shareAlbumDown(userUid, shareUserUid, shareAlbumName)
+                            shareAlbumDown(userUid, shareUserUid, shareAlbumName, shareAlbumIndex)
                         }
 
                     }
@@ -279,7 +255,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     }
 
 
-
     // 앨범 생성 이름 입력용 alertDialog
     private fun showAlbumCreatePopup() {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -306,7 +281,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
 
     //공유 앨범 받아오기
-    private fun shareAlbumDown(userUid: String?, shareUserUid: String?, shareAlbumName: String?){
+    private fun shareAlbumDown(userUid: String?, shareUserUid: String?, shareAlbumName: String?, shareAlbumIndex: String?){
         val progressDialog: ProgressDialog = ProgressDialog(this)
         progressDialog.setMessage("공유 앨범을 받아오는 중입니다.")
         progressDialog.setCancelable(true)
@@ -314,46 +289,26 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
         progressDialog.show()
 
+        val shareAlbum = hashMapOf(
+            "shareUserUid" to shareUserUid,
+            "shareAlbumIndex" to shareAlbumIndex
+        )
+
         val db = FirebaseFirestore.getInstance()
         val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
-        db.collection("user").document("$shareUserUid")
-                .collection("S]$shareAlbumName").get()
-                .addOnSuccessListener { result->
-                    for (document in result){
-                        tempArray.add(document.toObject(SelectImageActivity.dbSite::class.java))
-                    }
-                    if (tempArray.size == result.size()){
-                        var cnt = 0
-                        for (j in 0 until tempArray.size){
-                            val tempImageArray = tempArray[j].imageArray
-                            val imageUri : ArrayList<String> = arrayListOf()
-                            for (k in 0 until tempImageArray!!.size){
-                                val tempUri = Uri.parse(tempImageArray.get(k))
-                                val pathReference = storageRef.child("$shareUserUid/$shareAlbumName/${tempUri.lastPathSegment}")
-                                pathReference.downloadUrl.addOnSuccessListener { task->
-                                    val downloadUri = task
-                                    imageUri.add(downloadUri.toString())
-                                    if (imageUri.size == tempImageArray.size){
-                                        tempArray[j].imageArray = imageUri
-                                        cnt = cnt+1
-                                    }
-                                    if(cnt == tempArray.size){
-                                        progressDialog.dismiss()
-                                        tempArray.sortBy { data -> data.date }
-                                        val intent = Intent(this, ShareTapActivity::class.java)
-                                        intent.putExtra(AlbumListActivity.ALBUM_DATA, tempArray)
-                                        intent.putExtra(KEY_ALBUM_NAME, shareAlbumName)
-                                        intent.putExtra(KEY_SHARE_USER_UID, shareUserUid)
-                                        startActivity(intent)
-                                    }
-                                }
-                            }
-                        }
+        db.collection("user").document("$userUid")
+            .update("shareAlbumList", FieldValue.arrayUnion(shareAlbumName))
+        db.collection("user").document("$userUid")
+            .collection("ShareAlbum").document("$shareAlbumName")
+            .set(shareAlbum)
 
-                    }
-                }
+        progressDialog.dismiss()
+        val intent = Intent(this, ShareTapActivity::class.java)
+        intent.putExtra(AlbumListActivity.ALBUM_DATA, tempArray)
+        intent.putExtra(KEY_ALBUM_NAME, shareAlbumName)
+        intent.putExtra(KEY_SHARE_USER_UID, shareUserUid)
+        startActivity(intent)
     }
-
 
 }
 
