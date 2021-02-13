@@ -1,0 +1,7 @@
+#Mon Feb 08 18:41:59 KST 2021
+base.0=C\:\\Users\\user\\Desktop\\leave&share modify db\\leave&share_tourapi_final_layout_final\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes.dex
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=C\:\\Users\\user\\Desktop\\leave&share modify db\\leave&share_tourapi_final_layout_final\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes2.dex

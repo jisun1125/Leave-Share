@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorLightGray"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/selectCheckbox"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/memoSite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="장소"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/memoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="메모제목"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/memoView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/memoDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="right"
+        android:textSize="15sp"
+        android:text="날짜"/>
+
+    <TextView
+        android:id="@+id/memoContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="내용"/>
+
+    <TextView
+        android:id="@+id/memoTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="15sp"
+        android:text="해시태그"/>
+
+</LinearLayout>
