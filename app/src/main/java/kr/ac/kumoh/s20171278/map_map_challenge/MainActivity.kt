@@ -289,15 +289,20 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
         progressDialog.show()
 
+        var shareAlbumIndexList = shareAlbumIndex?.split(",")
+
+        shareAlbumIndexList = shareAlbumIndexList?.dropLast(1)
+
         val shareAlbum = hashMapOf(
             "shareUserUid" to shareUserUid,
-            "shareAlbumIndex" to shareAlbumIndex
+            "shareAlbumIndexList" to shareAlbumIndexList
         )
 
         val db = FirebaseFirestore.getInstance()
         val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
         db.collection("user").document("$userUid")
             .update("shareAlbumList", FieldValue.arrayUnion(shareAlbumName))
+
         db.collection("user").document("$userUid")
             .collection("ShareAlbum").document("$shareAlbumName")
             .set(shareAlbum)
