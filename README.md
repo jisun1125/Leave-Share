@@ -1,5 +1,7 @@
 # 리브앤쉐어
 (앱 대표 이미지 추가)
+- 구글 플레이스토어 출시 
+* https://play.google.com/store/apps/details?id=kr.ac.kumoh.s20171278.map_map_challenge
 
 ## 소개
 - 손쉬운 여행 기록과 작성한 여행 기록 공유 기능을 통한 다른 사용자의 여행기와 여행 정보 수집을 돕는 모바일 어플리케이션
