@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     // 테스트 체크 용 변수
     private var isTesting : Boolean = false
 
+    // 커밋테스트 주석
     companion object {
         const val KEY_ALBUM_NAME = "album_name"
         const val KEY_TEST = "isTesting"
