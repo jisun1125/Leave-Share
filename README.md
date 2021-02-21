@@ -1,5 +1,6 @@
 # 리브앤쉐어
-(앱 대표 이미지 추가)
+<img src="https://user-images.githubusercontent.com/55406486/108613548-61a21400-7436-11eb-8c45-016c0689fe49.png"  width="450" height="450">
+
 - 구글 플레이스토어 출시 
 * https://play.google.com/store/apps/details?id=kr.ac.kumoh.s20171278.map_map_challenge
 
@@ -28,6 +29,12 @@
 
 (캡쳐 추가)
 
+### 근처 관광지 정보 조회
+* GPS 좌표를 기준으로 근처 관광지 정보를 제공함
+* 원하는 관광지 목록을 클릭해 상세 정보 조회 가능
+![image](https://user-images.githubusercontent.com/55406486/108613639-2e13b980-7437-11eb-878d-4102f2b162b7.jpg)
+
+
 ### 공유 기능
 * 저장된 앨범을 링크 형태로 공유
 * 원하는 그룹만 선택하여 전송 가능
@@ -53,11 +60,12 @@
 ![image](https://user-images.githubusercontent.com/55406486/92083758-6c71d980-ee01-11ea-998c-21a5ad9fffe9.png)
 ![image](https://user-images.githubusercontent.com/55406486/92083763-6e3b9d00-ee01-11ea-8dc4-c99c93ede8f0.png)
 
+- 해시태그를 눌러 검색 지원
+<img src="https://user-images.githubusercontent.com/55406486/108613638-2b18c900-7437-11eb-8738-6092206533e9.jpg" width="280" >
 
 ### 관광지 정보 검색/조회
 * 원하는 관광지의 이름, 주소, 사진, 전화번호, 홈페이지, 개요 등의 정보 조회 가능
-
-(캡쳐 추가)
+<img src="https://user-images.githubusercontent.com/55406486/108613636-281dd880-7437-11eb-9ad1-08f99511ec05.jpg" width="280" >
 
 
 ## 개발팀
