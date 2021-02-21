@@ -8,7 +8,7 @@
 - 손쉬운 여행 기록과 작성한 여행 기록 공유 기능을 통한 다른 사용자의 여행기와 여행 정보 수집을 돕는 모바일 어플리케이션
 * 근처 관광지 자동 해시태깅, 관광 정보 조회/검색 기능 추가(한국관광공사 TourAPI 기반)
 * 개발 언어: Kotlin
-
+* Android Studio, 한국관광공사 TourAPI 국문 관광정보 서비스, Maps SDK for Android, ExifInterface, Firebase, Cloud Firestore, Cloud Storage for Firebase, Firebase Authentication, FIrebase Dynamic Link
 
 ## 어플리케이션 주요 기능
 ### 이미지의 GPS 좌표, 시간 기반 자동 그룹 분류
