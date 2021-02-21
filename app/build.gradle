@@ -16,15 +16,30 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release{
+            storeFile file("mapmap_jks.jks")
+            storePassword "wlwlcof12"
+            keyAlias "mapmap_apk"
+            keyPassword "wlwlcof12"
+        }
+    }
+
     buildTypes {
-        release {
+        debug{
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     androidExtensions {
         experimental = true
     }
+
 }
 
 dependencies {
@@ -50,7 +65,7 @@ dependencies {
 
     //viewpager
     implementation "com.squareup.picasso:picasso:2.5.2"
-    implementation 'androidx.viewpager2:viewpager2:1.0.0-rc01'
+    implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
 
     //googleMap, firebase
     implementation 'com.google.android.gms:play-services-maps:17.0.0'

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3c963bc22d0485fa033398368272d5d\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\bf31d806d1b47bb2eae4663d2ec9b2d1\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -14,8 +14,8 @@ MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\188d0118ca9602bb4ca4b48d5ee24162\play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6daee16c7e39b6dee1a95d6cf4d42984\lifecycle-extensions-2.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.volley:volley:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\5706557969841cfa3d4ff98cd2fa96f4\volley-1.1.0\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0-rc01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\49b1c85d0ab1b1fc458b629503bf12ec\viewpager2-1.0.0-rc01\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0-rc01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c373ba054b6f8062d952532b7ca1a5b6\recyclerview-1.1.0-rc01\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-alpha01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\a69e4aada34f672ad653856bac44a3f8\viewpager2-1.1.0-alpha01\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\897106bd00f5f3b8c295d42539eb3553\recyclerview-1.2.0-alpha02\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c4e4a79c241a4eb38577aa9c192a7401\play-services-maps-17.0.0\AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\050aad4bc1c729f9312c7344a04bd5af\firebase-database-19.3.0\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.firebase:firebase-auth:19.3.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\79d13333231d2a5594e6c796a9b90ec2\firebase-auth-19.3.1\AndroidManifest.xml:17:1-42:12
@@ -53,22 +53,22 @@ MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\user\.gradle
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\7c76a74b5c5cc2f25a30cc1dce2c80d8\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.media:media:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\52501123ae577ba2f71c51131a218be7\media-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\54eabfa6f112652f2ce11749de30270c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.transition:transition:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\42786c180907291a293c600498a124c6\transition-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\99f12e0533125283795a5efc3ba399fd\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\dfcd596f0c84e795d79a7a24488c4de4\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3b7bb1d160e761e747809826b5b3a7e\activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6a6ebab2533960495a3df9ae6f53a99f\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b0cb27266f21382e65f6dbd709c32632\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6757959bcf4396021d6c83423be8e3f\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\42786c180907291a293c600498a124c6\transition-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6385b2dcfa3b716e593edb7de5a628d\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f0c4feb7a33d83a718f34d7403c994f5\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\435d97c3094eb60fb4eaeec781c11db1\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\99f12e0533125283795a5efc3ba399fd\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3b7bb1d160e761e747809826b5b3a7e\activity-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\259dbb519e16e14c9844f934d5d0d6a2\coordinatorlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\8d3ddebab9acc1074730e922078fd563\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\34d6c6cb11ac599fa394ede36a466b0f\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\cf18c0a2589a4648137201117e265ca9\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\37b9d78213adc650d7cb7e858953dba7\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.2.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\eb5067a9e63e000bebf5f7d197455982\core-1.2.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6a6ebab2533960495a3df9ae6f53a99f\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b0cb27266f21382e65f6dbd709c32632\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6757959bcf4396021d6c83423be8e3f\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6385b2dcfa3b716e593edb7de5a628d\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f49987313edac9ba90454a9b26724b70\core-1.3.0-alpha02\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\87084d2713a09842ca5ed88dd8e6f2ca\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\e49f67b10c66f5c7a4b25ecc05daf6d3\jetified-firebase-components-16.0.0\AndroidManifest.xml:15:1-23:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\e6a41ec055d7e826efd6b9eee7b7f6f9\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -85,25 +85,25 @@ MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\use
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\52919488b317a0f0a0bc5e5e3924fea3\grpc-android-1.21.0\AndroidManifest.xml:2:1-13:12
 MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\user\.gradle\caches\transforms-2\files-2.1\4dfe4322ba0eb1e332fda61b586f001b\library-1.0.4\AndroidManifest.xml:1:106-7:12
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\user\.gradle\caches\transforms-2\files-2.1\cb0cbbd531065cc5ee60626d7f8dec9d\library-1.0.2\AndroidManifest.xml:1:116-8:12
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
 	package
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:3:5-54
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:3:5-54
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:1-87:12
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:1-84:12
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:5:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c4e4a79c241a4eb38577aa9c192a7401\play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c4e4a79c241a4eb38577aa9c192a7401\play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\050aad4bc1c729f9312c7344a04bd5af\firebase-database-19.3.0\AndroidManifest.xml:26:5-67
@@ -125,19 +125,13 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\384a09265fb5296165ce9b3b99af25fc\jetified-play-services-measurement-sdk-api-16.4.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\384a09265fb5296165ce9b3b99af25fc\jetified-play-services-measurement-sdk-api-16.4.0\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:5:22-64
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:6:5-79
-MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:14:5-79
-MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:14:5-79
-	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:6:22-76
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_MEDIA_LOCATION
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:7:5-79
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:7:22-77
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:6:22-77
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:8:5-79
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:7:5-79
 MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:13:5-79
 MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:13:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c4e4a79c241a4eb38577aa9c192a7401\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
@@ -161,51 +155,41 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] C:
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\52919488b317a0f0a0bc5e5e3924fea3\grpc-android-1.21.0\AndroidManifest.xml:11:5-79
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\52919488b317a0f0a0bc5e5e3924fea3\grpc-android-1.21.0\AndroidManifest.xml:11:5-79
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:8:22-76
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:9:5-81
-MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:12:5-81
-MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:12:5-81
-	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:9:22-78
-uses-permission#android.permission.CAMERA
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:10:5-65
-	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:10:22-62
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:7:22-76
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:11:5-80
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:8:5-80
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:25:5-80
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:25:5-80
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:11:22-77
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:8:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:12:5-81
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:9:5-81
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:24:5-81
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:24:5-81
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:12:22-78
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:9:22-78
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:13:5-98
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:10:5-98
 MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:15:5-98
 MERGED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:15:5-98
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:13:22-95
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:10:22-95
 uses-feature#android.hardware.camera
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:15:5-60
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:12:5-60
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:15:19-57
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:12:19-57
 uses-feature#android.hardware.camera.autofocus
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:16:5-18:36
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:13:5-15:36
 	android:required
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:18:9-33
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:15:9-33
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:17:9-57
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:14:9-57
 uses-permission#android.permission.GET_TASKS
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:20:5-68
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:17:5-68
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:20:22-65
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:17:22-65
 application
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:22:5-85:19
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:19:5-82:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3c963bc22d0485fa033398368272d5d\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3c963bc22d0485fa033398368272d5d\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:27:5-31:19
@@ -274,8 +258,8 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c83259e1a829643f70a437269cac8485\jetified-play-services-ads-identifier-16.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\8d1c4c75a5b00e47c74bac92f83159f3\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\8d1c4c75a5b00e47c74bac92f83159f3\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.core:core:1.2.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\eb5067a9e63e000bebf5f7d197455982\core-1.2.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.2.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\eb5067a9e63e000bebf5f7d197455982\core-1.2.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f49987313edac9ba90454a9b26724b70\core-1.3.0-alpha02\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f49987313edac9ba90454a9b26724b70\core-1.3.0-alpha02\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\87084d2713a09842ca5ed88dd8e6f2ca\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\87084d2713a09842ca5ed88dd8e6f2ca\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9d506fead5e94c0ac642d458a54a879f\gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
@@ -287,155 +271,155 @@ MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\user
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\user\.gradle\caches\transforms-2\files-2.1\cb0cbbd531065cc5ee60626d7f8dec9d\library-1.0.2\AndroidManifest.xml:5:5-6:19
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\user\.gradle\caches\transforms-2\files-2.1\cb0cbbd531065cc5ee60626d7f8dec9d\library-1.0.2\AndroidManifest.xml:5:5-6:19
 	android:requestLegacyExternalStorage
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:25:9-52
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:22:9-52
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.2.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\eb5067a9e63e000bebf5f7d197455982\core-1.2.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.3.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f49987313edac9ba90454a9b26724b70\core-1.3.0-alpha02\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:29:9-35
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:26:9-35
 	android:label
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:27:9-41
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:24:9-41
 	android:roundIcon
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:28:9-61
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:25:9-61
 	android:icon
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:26:9-50
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:23:9-50
 	android:allowBackup
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:23:9-35
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:20:9-35
 	android:theme
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:30:9-40
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:27:9-40
 	android:usesCleartextTraffic
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:24:9-44
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:21:9-44
 activity#kr.ac.kumoh.s20171278.map_map_challenge.search.SearchTourActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:31:9-72
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:28:9-72
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:31:19-60
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:28:19-60
 activity#kr.ac.kumoh.s20171278.map_map_challenge.album.main.DetailTourActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:32:9-67
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:29:9-67
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:32:19-64
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:29:19-64
 activity#kr.ac.kumoh.s20171278.map_map_challenge.album.main.TourListActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:33:9-65
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:30:9-65
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:33:19-62
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:30:19-62
 activity#kr.ac.kumoh.s20171278.map_map_challenge.SplashActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:34:9-40:20
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:31:9-37:20
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:34:19-49
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:31:19-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:35:13-39:29
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:32:13-36:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:36:17-69
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:33:17-69
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:36:25-66
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:33:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:38:17-77
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:35:17-77
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:38:27-74
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:35:27-74
 activity#kr.ac.kumoh.s20171278.map_map_challenge.select.main.SelectTapActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:41:9-67
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:38:9-67
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:41:19-64
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:38:19-64
 activity#kr.ac.kumoh.s20171278.map_map_challenge.share.main.ShareLoginActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:42:9-67
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:39:9-67
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:42:19-64
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:39:19-64
 activity#kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:43:9-65
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:40:9-65
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:43:19-62
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:40:19-62
 activity#kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedAlbumActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:44:9-65
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:41:9-65
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:44:19-62
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:41:19-62
 activity#kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedTabActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:45:9-63
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:42:9-63
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:45:19-60
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:42:19-60
 activity#kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumListActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:46:9-66
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:43:9-66
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:46:19-63
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:43:19-63
 activity#kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumDetailMemoActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:47:9-49:53
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:44:9-46:53
 	android:theme
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:49:13-50
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:46:13-50
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:48:13-63
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:45:13-63
 activity#kr.ac.kumoh.s20171278.map_map_challenge.SignUpActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:50:9-52
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:47:9-52
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:50:19-49
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:47:19-49
 activity#kr.ac.kumoh.s20171278.map_map_challenge.MainLoginActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:51:9-55
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:48:9-55
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:51:19-52
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:48:19-52
 activity#kr.ac.kumoh.s20171278.map_map_challenge.main.DetailMemoActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:52:9-54:53
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:49:9-51:53
 	android:theme
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:54:13-50
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:51:13-50
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:53:13-52
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:50:13-52
 activity#kr.ac.kumoh.s20171278.map_map_challenge.SelectImagePopupActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:55:9-57:53
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:52:9-54:53
 	android:theme
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:57:13-50
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:54:13-50
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:56:13-53
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:53:13-53
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:59:9-61:71
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:56:9-58:71
 	android:value
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:61:13-68
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:58:13-68
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:60:13-58
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:57:13-58
 activity#com.zfdang.multiple_images_selector.ImagesSelectorActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:63:9-65:62
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:60:9-62:62
 	android:configChanges
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:65:13-59
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:62:13-59
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:64:13-86
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:61:13-86
 activity#kr.ac.kumoh.s20171278.map_map_challenge.SelectImageActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:66:9-57
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:63:9-57
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:66:19-54
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:63:19-54
 activity#kr.ac.kumoh.s20171278.map_map_challenge.SearchActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:67:9-52
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:64:9-52
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:67:19-49
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:64:19-49
 activity#kr.ac.kumoh.s20171278.map_map_challenge.main.MainTabActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:68:9-58
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:65:9-58
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:68:19-55
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:65:19-55
 activity#kr.ac.kumoh.s20171278.map_map_challenge.MainActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:69:9-83:20
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:66:9-80:20
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:69:19-47
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:66:19-47
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:example.com+data:host:example.com+data:scheme:http+data:scheme:https
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:70:13-82:29
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:67:13-79:29
 action#android.intent.action.VIEW
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:71:17-69
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:68:17-69
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:71:25-66
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:68:25-66
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:73:17-76
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:70:17-76
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:73:27-73
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:70:27-73
 category#android.intent.category.BROWSABLE
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:74:17-78
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:71:17-78
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:74:27-75
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:71:27-75
 data
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:76:17-78:45
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:73:17-75:45
 	android:host
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:77:21-47
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:74:21-47
 	android:scheme
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:78:21-42
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:75:21-42
 activity#kr.ac.kumoh.s20171278.map_map_challenge.share.main.ShareTapActivity
-ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:84:9-65
+ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:81:9-65
 	android:name
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml:84:19-62
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml:81:19-62
 uses-sdk
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3c963bc22d0485fa033398368272d5d\material-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3c963bc22d0485fa033398368272d5d\material-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:20:5-22:41
@@ -456,10 +440,10 @@ MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\user\.gradl
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6daee16c7e39b6dee1a95d6cf4d42984\lifecycle-extensions-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.android.volley:volley:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\5706557969841cfa3d4ff98cd2fa96f4\volley-1.1.0\AndroidManifest.xml:7:5-43
 MERGED from [com.android.volley:volley:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\5706557969841cfa3d4ff98cd2fa96f4\volley-1.1.0\AndroidManifest.xml:7:5-43
-MERGED from [androidx.viewpager2:viewpager2:1.0.0-rc01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\49b1c85d0ab1b1fc458b629503bf12ec\viewpager2-1.0.0-rc01\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0-rc01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\49b1c85d0ab1b1fc458b629503bf12ec\viewpager2-1.0.0-rc01\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0-rc01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c373ba054b6f8062d952532b7ca1a5b6\recyclerview-1.1.0-rc01\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0-rc01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c373ba054b6f8062d952532b7ca1a5b6\recyclerview-1.1.0-rc01\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-alpha01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\a69e4aada34f672ad653856bac44a3f8\viewpager2-1.1.0-alpha01\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-alpha01] C:\Users\user\.gradle\caches\transforms-2\files-2.1\a69e4aada34f672ad653856bac44a3f8\viewpager2-1.1.0-alpha01\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\897106bd00f5f3b8c295d42539eb3553\recyclerview-1.2.0-alpha02\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\897106bd00f5f3b8c295d42539eb3553\recyclerview-1.2.0-alpha02\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c4e4a79c241a4eb38577aa9c192a7401\play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c4e4a79c241a4eb38577aa9c192a7401\play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\050aad4bc1c729f9312c7344a04bd5af\firebase-database-19.3.0\AndroidManifest.xml:19:5-21:41
@@ -534,18 +518,26 @@ MERGED from [androidx.media:media:1.0.0] C:\Users\user\.gradle\caches\transforms
 MERGED from [androidx.media:media:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\52501123ae577ba2f71c51131a218be7\media-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\54eabfa6f112652f2ce11749de30270c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\54eabfa6f112652f2ce11749de30270c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\42786c180907291a293c600498a124c6\transition-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\42786c180907291a293c600498a124c6\transition-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\99f12e0533125283795a5efc3ba399fd\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\99f12e0533125283795a5efc3ba399fd\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\dfcd596f0c84e795d79a7a24488c4de4\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\dfcd596f0c84e795d79a7a24488c4de4\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3b7bb1d160e761e747809826b5b3a7e\activity-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3b7bb1d160e761e747809826b5b3a7e\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6a6ebab2533960495a3df9ae6f53a99f\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6a6ebab2533960495a3df9ae6f53a99f\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b0cb27266f21382e65f6dbd709c32632\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b0cb27266f21382e65f6dbd709c32632\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6757959bcf4396021d6c83423be8e3f\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6757959bcf4396021d6c83423be8e3f\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\42786c180907291a293c600498a124c6\transition-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\42786c180907291a293c600498a124c6\transition-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6385b2dcfa3b716e593edb7de5a628d\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6385b2dcfa3b716e593edb7de5a628d\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f0c4feb7a33d83a718f34d7403c994f5\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f0c4feb7a33d83a718f34d7403c994f5\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\435d97c3094eb60fb4eaeec781c11db1\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\435d97c3094eb60fb4eaeec781c11db1\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\99f12e0533125283795a5efc3ba399fd\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\99f12e0533125283795a5efc3ba399fd\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3b7bb1d160e761e747809826b5b3a7e\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\c3b7bb1d160e761e747809826b5b3a7e\activity-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\259dbb519e16e14c9844f934d5d0d6a2\coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\259dbb519e16e14c9844f934d5d0d6a2\coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\8d3ddebab9acc1074730e922078fd563\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
@@ -556,16 +548,8 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\user
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\cf18c0a2589a4648137201117e265ca9\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\37b9d78213adc650d7cb7e858953dba7\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\37b9d78213adc650d7cb7e858953dba7\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.2.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\eb5067a9e63e000bebf5f7d197455982\core-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.2.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\eb5067a9e63e000bebf5f7d197455982\core-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6a6ebab2533960495a3df9ae6f53a99f\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6a6ebab2533960495a3df9ae6f53a99f\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b0cb27266f21382e65f6dbd709c32632\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b0cb27266f21382e65f6dbd709c32632\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6757959bcf4396021d6c83423be8e3f\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6757959bcf4396021d6c83423be8e3f\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6385b2dcfa3b716e593edb7de5a628d\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d6385b2dcfa3b716e593edb7de5a628d\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f49987313edac9ba90454a9b26724b70\core-1.3.0-alpha02\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.0-alpha02] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f49987313edac9ba90454a9b26724b70\core-1.3.0-alpha02\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\87084d2713a09842ca5ed88dd8e6f2ca\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\87084d2713a09842ca5ed88dd8e6f2ca\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\e49f67b10c66f5c7a4b25ecc05daf6d3\jetified-firebase-components-16.0.0\AndroidManifest.xml:19:5-21:41
@@ -598,16 +582,16 @@ MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\user
 MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\user\.gradle\caches\transforms-2\files-2.1\4dfe4322ba0eb1e332fda61b586f001b\library-1.0.4\AndroidManifest.xml:3:5-72
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\user\.gradle\caches\transforms-2\files-2.1\cb0cbbd531065cc5ee60626d7f8dec9d\library-1.0.2\AndroidManifest.xml:3:5-72
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\user\.gradle\caches\transforms-2\files-2.1\cb0cbbd531065cc5ee60626d7f8dec9d\library-1.0.2\AndroidManifest.xml:3:5-72
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\user\Desktop\leave&share modify db\leave&share_tourapi_final_layout_final\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\user\Leave-Share\app\src\main\AndroidManifest.xml
 activity#com.zhihu.matisse.ui.MatisseActivity
 ADDED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:28:9-73
 	android:name
@@ -620,6 +604,14 @@ activity#com.zhihu.matisse.internal.ui.SelectedPreviewActivity
 ADDED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:30:9-90
 	android:name
 		ADDED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\64f0a1bac02b8e90e5b2048ef655c346\matisse-0.5.3-beta3\AndroidManifest.xml:30:19-87
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:12:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:14:22-76
 uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
 ADDED from [io.nlopez.smartlocation:library:3.3.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b2b243867047ecd3934686e12d2d37ae\jetified-library-3.3.3\AndroidManifest.xml:16:5-94
 	android:name
