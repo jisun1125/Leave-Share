@@ -5,6 +5,7 @@ import android.app.TaskStackBuilder
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -91,7 +92,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         viewPager.adapter = homeSectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
-
+        Log.d("ssss SDK Version : ", " SDK_INT " + Build.VERSION.SDK_INT)
         //툴바 설정
         setSupportActionBar(toolbar)
         val ab = supportActionBar!!
@@ -100,22 +101,25 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         ab.setDisplayShowTitleEnabled(false)
 
         val requestPermissions = arrayOf(
+            android.Manifest.permission.ACCESS_MEDIA_LOCATION,
             android.Manifest.permission.READ_EXTERNAL_STORAGE,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             android.Manifest.permission.INTERNET,
-            android.Manifest.permission.ACCESS_FINE_LOCATION,
-            android.Manifest.permission.ACCESS_MEDIA_LOCATION
-        )
+            android.Manifest.permission.ACCESS_FINE_LOCATION
 
+        )
+        Log.d("ssss main", requestPermissions.toString())
+        val permissionCheck = PermissionCheck(this, requestPermissions)
+        permissionCheck.permissionCheck()
         // read, write : 사진 선택 라이브러리 필요 권한
         // internet, accrss_fine_loaction : Geocoder 필요 권한
+        // media location : 앨범 접근 권한
 
         //앨범 생성 버튼
         btnMakeAlbum.setOnClickListener {
-            val permissionCheck = PermissionCheck(this, requestPermissions)
-            permissionCheck.permissionCheck()
+//            val permissionCheck = PermissionCheck(this, requestPermissions)
+//            permissionCheck.permissionCheck()
             showAlbumCreatePopup()
-
         }
 
         // 공유앨범 링크 수신
@@ -133,16 +137,11 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                         var deepLink: Uri? = null
                         if (it != null){
                             deepLink = it.link
-                            Log.d("aaaa deeplink", deepLink.toString())
 
                             val segment: List<String>? = deepLink?.pathSegments
                             shareUserUid = deepLink?.getQueryParameter(KEY_USER_UID)
                             shareAlbumName = deepLink?.getQueryParameter(KEY_SHARED_ALBUM_NAME)
                             shareAlbumIndex = deepLink?.getQueryParameter(KEY_SHARED_ALBUM_INDEX)
-                            Log.d("aaaa deeplink", "shareuserUid: ${shareUserUid.toString()}")
-                            Log.d("aaaa deeplink", "shareAlbumName: ${shareAlbumName.toString()}")
-                            Log.d("aaaa deep link", "sharedAlbumIndex: ${shareAlbumIndex}")
-
                             shareAlbumDown(userUid, shareUserUid, shareAlbumName, shareAlbumIndex)
                         }
 

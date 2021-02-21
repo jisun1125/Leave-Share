@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-az\\values-az.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\eb5067a9e63e000bebf5f7d197455982\\core-1.2.0\\res\\values-az\\values-az.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\f49987313edac9ba90454a9b26724b70\\core-1.3.0-alpha02\\res\\values-az\\values-az.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

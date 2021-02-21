@@ -169,23 +169,27 @@ class SharedAlbumActivity : Fragment() {
             }
 
             override fun onClick(v: View?){
-                db.collection("user").document(albumList[adapterPosition].shareUser.toString())
+                db.collection("user").document(albumList[adapterPosition].shareUserUid.toString())
                         .collection(albumList[adapterPosition].name.toString()).get()
-                        .addOnSuccessListener { result->
-                            for (document in result){
+                        .addOnSuccessListener { result ->
+                            for (document in result) {
                                 // 제대로 동작하는지 모르겠음
-                                if (document.id.toString() in albumList[adapterPosition].index){
+
+                                Log.d("ssss resut", result.toString())
+                                if (document.id.toString() in albumList[adapterPosition].index) {
                                     val temp: SelectImageActivity.dbSite = document.toObject(
-                                        SelectImageActivity.dbSite::class.java)
+                                        SelectImageActivity.dbSite::class.java
+                                    )
+                                    Log.d("ssss if", temp.toString())
                                     albumData.add(temp)
                                 }
                                 // 여기서 document id랑 albumList[adapterPosition].index 비교해서
-                                    // 있는거는 add하고 없는건 넘어감
+                                // 있는거는 add하고 없는건 넘어감
 
                             }
-                        }
-                        .addOnCompleteListener {
+                        }.addOnCompleteListener {
                             albumData.sortBy { data -> data.date }
+                            Log.d("ssss shareclick", albumData.toString())
                             val intent : Intent = Intent(context, SharedTabActivity::class.java)
                             intent.putExtra(AlbumListActivity.KEY_ALBUM_NAME, albumList[adapterPosition].name)
                             intent.putExtra(AlbumListActivity.ALBUM_DATA, albumData)

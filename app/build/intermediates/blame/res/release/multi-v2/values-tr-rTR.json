@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\user\\Desktop\\leave&share modify db\\leave&share_tourapi_final_layout_final\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-tr-rTR\\values-tr-rTR.xml",
+            "outputFile": "C:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-tr-rTR\\values-tr-rTR.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\64f0a1bac02b8e90e5b2048ef655c346\\matisse-0.5.3-beta3\\res\\values-tr-rTR\\values-tr-rTR.xml",

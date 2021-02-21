@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\user\\Desktop\\leave&share modify db\\leave&share_tourapi_final_layout_final\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ka\\values-ka.xml",
+            "outputFile": "C:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ka\\values-ka.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\f49987313edac9ba90454a9b26724b70\\core-1.3.0-alpha02\\res\\values-ka\\values-ka.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5598",
+                        "endColumns": "100",
+                        "endOffsets": "5694"
+                    }
+                },
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\654ca23f7945739ac3519ba151bc5b68\\play-services-base-17.1.0\\res\\values-ka\\values.xml",
                     "from": {
@@ -35,23 +52,6 @@
                         "startOffsets": "105,213,316,427,513,618,731,814,894,985,1077,1172,1266,1367,1460,1555,1650,1741,1832,1912,2025,2131,2229,2342,2447,2551,2709,5517",
                         "endColumns": "107,102,110,85,104,112,82,79,90,91,94,93,100,92,94,94,90,90,79,112,105,97,112,104,103,157,98,80",
                         "endOffsets": "208,311,422,508,613,726,809,889,980,1072,1167,1261,1362,1455,1550,1645,1736,1827,1907,2020,2126,2224,2337,2442,2546,2704,2803,5593"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\eb5067a9e63e000bebf5f7d197455982\\core-1.2.0\\res\\values-ka\\values-ka.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5598",
-                        "endColumns": "100",
-                        "endOffsets": "5694"
                     }
                 },
                 {
