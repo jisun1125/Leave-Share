@@ -40,9 +40,9 @@ class AlbumDetailMemoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.album_detail_memo)
 
-        albumName = intent.getStringExtra(KEY_ALBUM_NAME)
-        albumData = intent.getParcelableArrayListExtra(ALBUM_DATA)
-        markerPos = intent.getParcelableExtra(MARKER)
+        albumName = intent.getStringExtra(KEY_ALBUM_NAME)!!
+        albumData = intent.getParcelableArrayListExtra(ALBUM_DATA)!!
+        markerPos = intent.getParcelableExtra(MARKER)!!
 
         val picasso = Picasso.Builder(this).build()
 

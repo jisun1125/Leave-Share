@@ -20,7 +20,7 @@ class SelectImagePopupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_select_image_popup)
         siteName.text = intent.getStringExtra("siteName")
-        iArray = intent.getStringArrayListExtra("data")
+        iArray = intent.getStringArrayListExtra("data")!!
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = GridLayoutManager(applicationContext, 2) // 한 줄에 item 두 개 들어감

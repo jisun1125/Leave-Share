@@ -12,7 +12,7 @@ public final class R {
     public static final class style {
         private style() {}
 
-        public static final int Theme_AppInvite_Preview = 0x7f100153;
-        public static final int Theme_AppInvite_Preview_Base = 0x7f100154;
+        public static final int Theme_AppInvite_Preview = 0x7f1001a3;
+        public static final int Theme_AppInvite_Preview_Base = 0x7f1001a4;
     }
 }

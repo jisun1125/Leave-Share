@@ -52,8 +52,8 @@ class ShareTapActivity : AppCompatActivity() {
         setContentView(R.layout.share_activity_share_tap)
         shareUserUid = this.intent.getStringExtra(KEY_SHARE_USER_UID)
 
-        albumName = this.intent.getStringExtra(KEY_ALBUM_NAME)
-        albumData = this.intent.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)
+        albumName = this.intent.getStringExtra(KEY_ALBUM_NAME)!!
+        albumData = this.intent.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)!!
 
 
         if (userUid!= null){  // 로그인 된 경우

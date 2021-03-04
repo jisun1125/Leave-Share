@@ -42,7 +42,7 @@ class AlbumMemoFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)
+        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)!!
 
         val view: View = inflater.inflate(R.layout.album_fragment_album_memo, container, false)
 
@@ -52,7 +52,7 @@ class AlbumMemoFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        albumData = activity?.intent!!.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)
+        albumData = activity?.intent!!.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)!!
 
         val mAdapter = MemoAdapter()
 

@@ -28,7 +28,7 @@ class ShareLoginActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.userEmail)
         val password = findViewById<EditText>(R.id.userPass)
 
-        albumData = intent.getParcelableArrayListExtra(KEY_SHARE_TEMP)
+        albumData = intent.getParcelableArrayListExtra(KEY_SHARE_TEMP)!!
         shareUserUid = intent.getStringExtra(KEY_SHARE_USER_UID)
         shareAlbumName = intent.getStringExtra(KEY_SHARED_ALBUM_NAME)
 

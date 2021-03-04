@@ -52,7 +52,7 @@ class MainMemoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)
+        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)!!
 
 
         val view: View = inflater.inflate(R.layout.main_fragment_main_memo, container, false)
@@ -64,7 +64,7 @@ class MainMemoFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        albumData = activity!!.intent.getParcelableArrayListExtra(ALBUM_DATA)
+        albumData = activity!!.intent.getParcelableArrayListExtra(ALBUM_DATA)!!
         val mAdapter = MemoAdapter()
 
         recyclerView.apply {

@@ -101,7 +101,7 @@ class SelectImageActivity : AppCompatActivity() {
         isTesting = intent.getBooleanExtra(KEY_TEST, false)
 
         //MainActivity 에서 intent로 보낸 앨범 이름 받기
-        albumName = intent.getStringExtra(MainActivity.KEY_ALBUM_NAME)
+        albumName = intent.getStringExtra(MainActivity.KEY_ALBUM_NAME)!!
         set_date.text = albumName
 
         if (isTesting == false){
@@ -163,7 +163,7 @@ class SelectImageActivity : AppCompatActivity() {
                         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
                         progressDialog.show()
 
-                        val tempExifInterface = ExifInterface(mPathArray[i].imageArray?.get(j))
+                        val tempExifInterface = ExifInterface(mPathArray[i].imageArray?.get(j)!!)
                         val la : Double = getLa(tempExifInterface)
                         val lo : Double = getLo(tempExifInterface)
                         val url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?MobileOS=AND&MobileApp=TestApp&ServiceKey="+key+"&listYN=Y&contentTypeId=12&arrange=S&mapX=$lo&mapY=$la&radius=2000&_type=json"

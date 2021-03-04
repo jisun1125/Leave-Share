@@ -39,8 +39,8 @@ class MainTabActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_main_tab)
-        albumName = this.intent.getStringExtra(KEY_ALBUM_NAME)
-        albumData = this.intent.getParcelableArrayListExtra(ALBUM_DATA)
+        albumName = this.intent.getStringExtra(KEY_ALBUM_NAME)!!
+        albumData = this.intent.getParcelableArrayListExtra(ALBUM_DATA)!!
 
         val sectionsPagerAdapter =
             SectionsPagerAdapter(
