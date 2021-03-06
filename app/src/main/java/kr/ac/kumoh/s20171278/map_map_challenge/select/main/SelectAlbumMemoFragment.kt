@@ -58,8 +58,8 @@ class SelectAlbumMemoFragment : Fragment(){
         val auth = FirebaseAuth.getInstance()
         userUid = auth.currentUser?.uid
 
-        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)
-        albumData = activity!!.intent.getParcelableArrayListExtra(ALBUM_DATA)
+        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)!!
+        albumData = activity!!.intent.getParcelableArrayListExtra(ALBUM_DATA)!!
         db.collection("user").document("$userUid")
                 .get().addOnSuccessListener { result->
                     shareUserName = result.get("userName").toString()

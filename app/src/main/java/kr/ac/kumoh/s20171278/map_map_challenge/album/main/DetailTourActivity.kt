@@ -27,7 +27,9 @@ class DetailTourActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_tour)
         val tourContentId = this.intent.getStringExtra(TOUR_DATA)
-        getDetailTourData(tourContentId)
+        if (tourContentId != null) {
+            getDetailTourData(tourContentId)
+        }
     }
     // TourAPI 설명서 중 16 공통정보 조회 참조
     fun getDetailTourData(contentId:String){

@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     // 테스트 체크 용 변수
     private var isTesting : Boolean = false
 
-    // 커밋테스트 주석
     companion object {
         const val KEY_ALBUM_NAME = "album_name"
         const val KEY_TEST = "isTesting"
@@ -127,7 +126,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         let {
             userUid = auth.currentUser?.uid
             if (userUid!= null){
-                Log.d("aaaa userUid", userUid)
+//                Log.d("aaaa userUid", userUid)
             }
             FirebaseDynamicLinks.getInstance()
                     .getDynamicLink(intent)
@@ -164,7 +163,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             .addOnSuccessListener { document ->
                 Log.d("ggg album", "${document.id} => ${document.data}")
                 userName = document.get("userName") as String?
-                Log.d("ggg album", userName)
+//                Log.d("ggg album", userName)
             }
             .addOnCompleteListener {
                 hid.text = userName

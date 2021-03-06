@@ -166,7 +166,7 @@ class AlbumListActivity : Fragment() {
             // 클릭 이벤트
             // SelectionImagePopupActivity : 누른 장소에 있는 사진을 recyclerView 형태로 보여줌
             override fun onClick(v: View?) {
-                Log.d("ggg albumList click",albumList[adapterPosition].name)
+//                Log.d("ggg albumList click",albumList[adapterPosition].name)
                 db.collection("user").document(userUid.toString())
                     .collection(albumList[adapterPosition].name.toString()).get()
                     .addOnSuccessListener { result->

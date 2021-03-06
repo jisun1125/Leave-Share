@@ -72,7 +72,7 @@ class TourListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tour_list)
 
-        albumData = intent!!.getParcelableArrayListExtra(ALBUM_DATA)
+        albumData = intent!!.getParcelableArrayListExtra(ALBUM_DATA)!!
         var saveCnt = 0
         for(i in 0 until albumData.size){
             getLaLoTourData(albumData[i].lati.toString(), albumData[i].long.toString())

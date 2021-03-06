@@ -44,8 +44,8 @@ class MainMapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)
-        albumData = activity?.intent!!.getParcelableArrayListExtra(ALBUM_DATA)
+        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)!!
+        albumData = activity?.intent!!.getParcelableArrayListExtra(ALBUM_DATA)!!
 
         var rootView = inflater.inflate(R.layout.main_fragment_main_map, container, false)
         mView = rootView.findViewById(R.id.fragment_main_mv) as MapView

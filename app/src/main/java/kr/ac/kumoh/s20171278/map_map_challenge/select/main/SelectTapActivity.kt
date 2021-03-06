@@ -24,8 +24,8 @@ class SelectTapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_activity_select_share_tap)
-        albumName = this.intent.getStringExtra(KEY_ALBUM_NAME)
-        albumData = this.intent.getParcelableArrayListExtra(ALBUM_DATA)
+        albumName = this.intent.getStringExtra(KEY_ALBUM_NAME)!!
+        albumData = this.intent.getParcelableArrayListExtra(ALBUM_DATA)!!
 
         val sectionsPagerAdapter = SelectSectionsPagerAdapter(
                 this,

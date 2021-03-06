@@ -213,7 +213,7 @@ class SharedAlbumActivity : Fragment() {
             holder.sharedUserName.text = albumList[position].shareUser
             holder.sharedAlbumName.text = albumList[position].name
             if (albumList[position].image != null){
-                Log.d("ssss uri parse", albumList[position].image)
+//                Log.d("ssss uri parse", albumList[position].image)
             }
 
             val uri: Uri = Uri.parse(albumList[position].image)

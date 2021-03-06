@@ -44,8 +44,8 @@ class AlbumMapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)
-        albumData = activity?.intent!!.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)
+        albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)!!
+        albumData = activity?.intent!!.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)!!
 
         for (i in 0 until albumData.size){
             locaArray.add(LatLng(albumData[i].lati, albumData[i].long))

@@ -1,0 +1,2 @@
+# Referenced at C:\Users\krist\Desktop\Github\Leave-Share\app\build\intermediates\merged_manifests\debugAndroidTest\AndroidManifest.xml:9
+-keep class androidx.test.runner.AndroidJUnitRunner { <init>(); }
