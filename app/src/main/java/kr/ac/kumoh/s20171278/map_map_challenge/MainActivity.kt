@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     val mStorage: FirebaseStorage = FirebaseStorage.getInstance()
     val storageRef: StorageReference = mStorage.reference
 
+    // 이것은 주석
     private var userUid: String? = null
     private var userName: String? = null
     lateinit var albumName: String
@@ -123,7 +124,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         let {
             userUid = auth.currentUser?.uid
             if (userUid!= null){
-//                Log.d("aaaa userUid", userUid)
+                Log.d("aaaa userUid", userUid)
             }
             FirebaseDynamicLinks.getInstance()
                     .getDynamicLink(intent)
@@ -165,7 +166,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             .addOnSuccessListener { document ->
                 Log.d("ggg album", "${document.id} => ${document.data}")
                 userName = document.get("userName") as String?
-//                Log.d("ggg album", userName)
+                Log.d("ggg album", userName)
             }
             .addOnCompleteListener {
                 hid.text = userName
