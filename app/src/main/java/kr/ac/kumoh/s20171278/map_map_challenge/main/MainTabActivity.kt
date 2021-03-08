@@ -89,8 +89,10 @@ class MainTabActivity : AppCompatActivity() {
                     var downimage: Int = 0
                     for (j in 0 until image!!.size) {
                         val tempUri: Uri = Uri.parse(image.get(j))
+                        val tempPathString: String = "$userUid/$albumName/$i/$j"
                         val riversRef: StorageReference =
-                            storageRef.child("$userUid/$albumName/${tempUri.lastPathSegment}")
+                            storageRef.child(tempPathString)
+                        Log.d("aaaa uploadImage", "site: $s, date: $d, tempPathString: $tempPathString")
                         val uploadTask = riversRef.putFile(tempUri)
 
                         uploadTask.addOnFailureListener { e ->
@@ -99,6 +101,20 @@ class MainTabActivity : AppCompatActivity() {
 
                         uploadTask.addOnSuccessListener {
                             downimage += 1
+                            val downloadRef = storageRef.child(tempPathString)
+                            downloadRef.downloadUrl.addOnSuccessListener { task->
+                                Log.d("aaaa downloadRef", "${albumData[i].imageArray!![j]}, ${task.toString()}")
+                                albumData[i].imageArray?.set(j, task.toString())
+                            }
+//                            for (j in dataSplit.indices){
+//                                storageRef.child(dataSplit[j]).downloadUrl.addOnSuccessListener { task->
+//                                    imageList.add(task.toString())
+//                                }.addOnFailureListener {
+//                                    imageList.add("")
+//                                    Log.e("aaaa downloadUri", "null")
+//                                }
+//                            }
+
                             if (image.size == downimage) {
                                 db.collection("user").document("$userUid")
                                     .collection(albumName).document(docidx.toString())

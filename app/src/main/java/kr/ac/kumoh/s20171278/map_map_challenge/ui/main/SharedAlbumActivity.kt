@@ -73,7 +73,7 @@ class SharedAlbumActivity : Fragment() {
     }
 
 
-    private fun setUpalbum(){
+    private fun setUpalbum(userUid: String, albumNameList:ArrayList<String>){
         for (i in 0 until albumNameList.size){
             var shareAlbumIndex: ArrayList<String> = arrayListOf()
             var shareUserUid: String = ""
@@ -83,11 +83,12 @@ class SharedAlbumActivity : Fragment() {
             db.collection("user").document(userUid.toString())
                     .collection("ShareAlbum").document(albumNameList[i]).get()
                     .addOnSuccessListener { result->
-                        tempShareAlbum.index = result.get("shareAlbumIndex") as ArrayList<String>
+                      //  shareAlbumIndex = result.get("shareAlbumIndex") as ArrayList<String>
+                        tempShareAlbum.index = (result.get("shareAlbumIndex") as ArrayList<String>?)!!
                         shareUserUid= result.get("shareUserUid") as String
                         tempShareAlbum.shareUserUid = shareUserUid
                         Log.d("ssss db", "result: " + result.toString())
-                        Log.d("ssss db", "index: " + tempShareAlbum.index.toString())
+                        Log.d("ssss db", "index: " + shareAlbumIndex.toString())
                         Log.d("ssss db", "shareUser: " + tempShareAlbum.shareUser)
 
                         db.collection("user").document(shareUserUid).get()
@@ -136,8 +137,7 @@ class SharedAlbumActivity : Fragment() {
                         stextNotify.text = ""
                         Log.d("ssss shareAlbumList", albumNameList.toString())
                         stextNotify.setTextSize(2, 0F)
-                        // DB에서 공유앨범 목록 불러오는 기능 수정 후 아래 주석 활성화
-                        setUpalbum()
+                        setUpalbum(userUid.toString(), albumNameList)
                     }
 
                 }
@@ -173,9 +173,8 @@ class SharedAlbumActivity : Fragment() {
                         .collection(albumList[adapterPosition].name.toString()).get()
                         .addOnSuccessListener { result ->
                             for (document in result) {
-                                // 제대로 동작하는지 모르겠음
-
-                                Log.d("ssss resut", result.toString())
+                                Log.d("ssss result", result.toString())
+                                Log.d("ssss result docu", document.toString())
                                 if (document.id.toString() in albumList[adapterPosition].index) {
                                     val temp: SelectImageActivity.dbSite = document.toObject(
                                         SelectImageActivity.dbSite::class.java
@@ -183,7 +182,7 @@ class SharedAlbumActivity : Fragment() {
                                     Log.d("ssss if", temp.toString())
                                     albumData.add(temp)
                                 }
-                                // 여기서 document id랑 albumList[adapterPosition].index 비교해서
+                                // document id랑 albumList[adapterPosition].index 비교해서
                                 // 있는거는 add하고 없는건 넘어감
 
                             }
@@ -213,7 +212,7 @@ class SharedAlbumActivity : Fragment() {
             holder.sharedUserName.text = albumList[position].shareUser
             holder.sharedAlbumName.text = albumList[position].name
             if (albumList[position].image != null){
-//                Log.d("ssss uri parse", albumList[position].image)
+                Log.d("ssss uri parse", albumList[position].image.toString())
             }
 
             val uri: Uri = Uri.parse(albumList[position].image)
