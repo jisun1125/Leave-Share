@@ -746,8 +746,8 @@ public final class R {
         public static final int notification_template_icon_low_bg = 0x7f0700a2;
         public static final int notification_tile_bg = 0x7f0700a3;
         public static final int notify_panel_notification_icon_bg = 0x7f0700a4;
-        public static final int tooltip_frame_dark = 0x7f0700a9;
-        public static final int tooltip_frame_light = 0x7f0700aa;
+        public static final int tooltip_frame_dark = 0x7f0700aa;
+        public static final int tooltip_frame_light = 0x7f0700ab;
     }
     public static final class id {
         private id() {}
@@ -1048,9 +1048,9 @@ public final class R {
         public static final int error_over_quality = 0x7f0f0043;
         public static final int error_type_conflict = 0x7f0f0044;
         public static final int error_under_quality = 0x7f0f0045;
-        public static final int photo_grid_capture = 0x7f0f0058;
-        public static final int search_menu_title = 0x7f0f005a;
-        public static final int status_bar_notification_info_overflow = 0x7f0f005b;
+        public static final int photo_grid_capture = 0x7f0f0059;
+        public static final int search_menu_title = 0x7f0f005b;
+        public static final int status_bar_notification_info_overflow = 0x7f0f005c;
     }
     public static final class style {
         private style() {}

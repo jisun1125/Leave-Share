@@ -21,6 +21,7 @@ import kr.ac.kumoh.s20171278.map_map_challenge.MainActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.MainActivity.Companion.KEY_SHARE_TEMP
 import kr.ac.kumoh.s20171278.map_map_challenge.*
 import kr.ac.kumoh.s20171278.map_map_challenge.MainActivity.Companion.KEY_ALBUM_NAME
+import kr.ac.kumoh.s20171278.map_map_challenge.MainActivity.Companion.KEY_SHARE_ALBUM_INDEX
 import kr.ac.kumoh.s20171278.map_map_challenge.MainActivity.Companion.KEY_SHARE_USER_UID
 import kr.ac.kumoh.s20171278.map_map_challenge.SelectImageActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.SelectImageActivity.Companion.ALBUM_DATA
@@ -38,6 +39,7 @@ class ShareTapActivity : AppCompatActivity() {
     private lateinit var albumName: String
     private var userUid: String? = null
     private var shareUserUid: String? = null
+    private var shareAlbumIndex: String? = null
     val auth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
     data class ShareUser(
@@ -51,10 +53,9 @@ class ShareTapActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.share_activity_share_tap)
         shareUserUid = this.intent.getStringExtra(KEY_SHARE_USER_UID)
-
+        shareAlbumIndex = this.intent.getStringExtra(KEY_SHARE_ALBUM_INDEX)
         albumName = this.intent.getStringExtra(KEY_ALBUM_NAME)!!
         albumData = this.intent.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)!!
-
 
         if (userUid!= null){  // 로그인 된 경우
             btnShareSave.text = "공유 앨범 저장하기"
@@ -80,7 +81,7 @@ class ShareTapActivity : AppCompatActivity() {
 
         btnShareSave.setOnClickListener {
             if (userUid!= null){
-                shareAlbumSave(userUid, albumData, albumName, shareUserUid)
+                shareAlbumSave(userUid, albumName, shareUserUid, shareAlbumIndex)
             }
             else{
                 intent = Intent(this, ShareLoginActivity::class.java)
@@ -102,7 +103,7 @@ class ShareTapActivity : AppCompatActivity() {
                     userUid = auth.currentUser?.uid
                 }
 
-                shareAlbumSave(userUid, albumData, albumName, shareUserUid)
+                shareAlbumSave(userUid, albumName, shareUserUid, shareAlbumIndex)
                 if (shareUserUid!= null && albumName != null && albumData!=null){
                     Log.d("aaaa shareAlbu", "로그인하고 값 받음")
                 }
@@ -115,40 +116,22 @@ class ShareTapActivity : AppCompatActivity() {
             }
         }
     }
-    private fun shareAlbumSave(userUid: String?, tempArray: ArrayList<SelectImageActivity.dbSite>?, shareAlbumName: String?, shareUserUid: String?){
+    private fun shareAlbumSave(userUid: String?, shareAlbumName: String?, shareUserUid: String?, shareAlbumIndex: String?){
         val db = FirebaseFirestore.getInstance()
-        db.collection("user").document("S]"+userUid.toString())
-                .update("albumList", FieldValue.arrayUnion(shareAlbumName))
+        var shareAlbumIndexList = shareAlbumIndex?.split(",")
+        shareAlbumIndexList = shareAlbumIndexList?.dropLast(1)
+        val shareAlbum = hashMapOf(
+            "shareUserUid" to shareUserUid,
+            "shareAlbumIndex" to shareAlbumIndexList
+        )
+        db.collection("user").document("$userUid")
+            .update("shareAlbumList", FieldValue.arrayUnion(shareAlbumName))
 
-
-        val def =  db.collection("user").document("S]"+userUid.toString())
-                .collection(shareAlbumName.toString())
-        for (i in 0 until tempArray!!.size) {
-            def.document().set(tempArray?.get(i)!!).addOnSuccessListener { result->
-            }.addOnFailureListener { exception ->
-                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
-                Log.w("aaaa saveAlbum", "Error getting documents: ", exception)
-            }
-        }
+        db.collection("user").document("$userUid")
+            .collection("ShareAlbum").document("$shareAlbumName")
+            .set(shareAlbum)
 
         Toast.makeText(this,"공유 앨범 정보를 저장했습니다.", Toast.LENGTH_SHORT).show()
         finish()
-    }
-    private fun uploadImage(imageArray: ArrayList<String>?){
-        val mStorage: FirebaseStorage = FirebaseStorage.getInstance()
-        val storageRef: StorageReference = mStorage.reference
-        if (imageArray != null) {
-            for (i in 0 until imageArray.size){
-                val tempUri: Uri = Uri.parse(imageArray.get(i))
-                val riversRef: StorageReference = storageRef.child("$userUid/S]$albumName/${tempUri.lastPathSegment}")
-
-                val uploadTask = riversRef.putFile(tempUri)
-
-                uploadTask.addOnFailureListener { e->
-                    Log.e("aaaa uploadImage", "imageUpload error")
-                }
-            }
-        }
-
     }
 }

@@ -63,7 +63,6 @@ class MainTabActivity : AppCompatActivity() {
         set_date.setText(intent.getStringExtra(MainActivity.KEY_ALBUM_NAME))
 
         btnPushData.setOnClickListener {
-
             val progressDialog: ProgressDialog = ProgressDialog(this)
             progressDialog.setMessage("앨범을 업로드하는 중입니다.")
             progressDialog.setCancelable(true)
@@ -106,14 +105,6 @@ class MainTabActivity : AppCompatActivity() {
                                 Log.d("aaaa downloadRef", "${albumData[i].imageArray!![j]}, ${task.toString()}")
                                 albumData[i].imageArray?.set(j, task.toString())
                             }
-//                            for (j in dataSplit.indices){
-//                                storageRef.child(dataSplit[j]).downloadUrl.addOnSuccessListener { task->
-//                                    imageList.add(task.toString())
-//                                }.addOnFailureListener {
-//                                    imageList.add("")
-//                                    Log.e("aaaa downloadUri", "null")
-//                                }
-//                            }
 
                             if (image.size == downimage) {
                                 db.collection("user").document("$userUid")
@@ -130,7 +121,6 @@ class MainTabActivity : AppCompatActivity() {
                                             startActivity(intent)
                                             finish()
                                         }
-
 
                                     }
                                     .addOnFailureListener { exception ->

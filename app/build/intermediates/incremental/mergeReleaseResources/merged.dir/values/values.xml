@@ -733,6 +733,7 @@
     <string name="google_api_key" translatable="false">AIzaSyA2NnUHr-wiq1E1lP-MpemjRI3l6vqLOkk</string>
     <string name="google_app_id" translatable="false">1:608173978898:android:02c5c271e32c7573d06fcb</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA2NnUHr-wiq1E1lP-MpemjRI3l6vqLOkk</string>
+    <string name="google_maps_key" translatable="false">AIzaSyDbUfjhLDVrk2H9inPV_xVupQs8RQBa9uw</string>
     <string name="google_storage_bucket" translatable="false">my-map-map-challenge-project.appspot.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>

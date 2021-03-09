@@ -5730,9 +5730,10 @@ public final class R {
     public static final int splash=0x7f0700a5;
     public static final int splash_icon=0x7f0700a6;
     public static final int splash_leave=0x7f0700a7;
-    public static final int splash_title=0x7f0700a8;
-    public static final int tooltip_frame_dark=0x7f0700a9;
-    public static final int tooltip_frame_light=0x7f0700aa;
+    public static final int splash_leave_1024=0x7f0700a8;
+    public static final int splash_title=0x7f0700a9;
+    public static final int tooltip_frame_dark=0x7f0700aa;
+    public static final int tooltip_frame_light=0x7f0700ab;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
@@ -6355,23 +6356,24 @@ public final class R {
     public static final int google_api_key=0x7f0f004a;
     public static final int google_app_id=0x7f0f004b;
     public static final int google_crash_reporting_api_key=0x7f0f004c;
-    public static final int google_storage_bucket=0x7f0f004d;
-    public static final int hello_blank_fragment=0x7f0f004e;
-    public static final int hide_bottom_view_on_scroll_behavior=0x7f0f004f;
-    public static final int home_tab_text_1=0x7f0f0050;
-    public static final int home_tab_text_2=0x7f0f0051;
-    public static final int mtrl_chip_close_icon_content_description=0x7f0f0052;
-    public static final int password_toggle_content_description=0x7f0f0053;
-    public static final int path_password_eye=0x7f0f0054;
-    public static final int path_password_eye_mask_strike_through=0x7f0f0055;
-    public static final int path_password_eye_mask_visible=0x7f0f0056;
-    public static final int path_password_strike_through=0x7f0f0057;
-    public static final int photo_grid_capture=0x7f0f0058;
-    public static final int project_id=0x7f0f0059;
-    public static final int search_menu_title=0x7f0f005a;
-    public static final int status_bar_notification_info_overflow=0x7f0f005b;
-    public static final int tab_text_1=0x7f0f005c;
-    public static final int tab_text_2=0x7f0f005d;
+    public static final int google_maps_key=0x7f0f004d;
+    public static final int google_storage_bucket=0x7f0f004e;
+    public static final int hello_blank_fragment=0x7f0f004f;
+    public static final int hide_bottom_view_on_scroll_behavior=0x7f0f0050;
+    public static final int home_tab_text_1=0x7f0f0051;
+    public static final int home_tab_text_2=0x7f0f0052;
+    public static final int mtrl_chip_close_icon_content_description=0x7f0f0053;
+    public static final int password_toggle_content_description=0x7f0f0054;
+    public static final int path_password_eye=0x7f0f0055;
+    public static final int path_password_eye_mask_strike_through=0x7f0f0056;
+    public static final int path_password_eye_mask_visible=0x7f0f0057;
+    public static final int path_password_strike_through=0x7f0f0058;
+    public static final int photo_grid_capture=0x7f0f0059;
+    public static final int project_id=0x7f0f005a;
+    public static final int search_menu_title=0x7f0f005b;
+    public static final int status_bar_notification_info_overflow=0x7f0f005c;
+    public static final int tab_text_1=0x7f0f005d;
+    public static final int tab_text_2=0x7f0f005e;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f100000;

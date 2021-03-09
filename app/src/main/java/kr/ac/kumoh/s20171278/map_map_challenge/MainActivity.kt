@@ -49,6 +49,7 @@ import kr.ac.kumoh.s20171278.map_map_challenge.home.HomeSectionsPagerAdapter
 import kr.ac.kumoh.s20171278.map_map_challenge.search.SearchTourActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.share.main.ShareTapActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedAlbumActivity
+import kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedTabActivity
 import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
@@ -60,12 +61,11 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         const val KEY_TEST = "isTesting"
         const val PICTURE_REQUEST_CODE = 1111
         const val KEY_SHARE_TEMP = "share_temp_array"
-
+        const val KEY_SHARE_ALBUM_INDEX = "share_album_index"
         const val KEY_SHARE_USER_UID = "share_user_uid"
 
         // 공유 앨범 보여주는 code
         const val SHARE_SAVE = 113
-
     }
     val db = FirebaseFirestore.getInstance()
     val mStorage: FirebaseStorage = FirebaseStorage.getInstance()
@@ -292,29 +292,64 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         progressDialog.show()
 
         var shareAlbumIndexList = shareAlbumIndex?.split(",")
-
         shareAlbumIndexList = shareAlbumIndexList?.dropLast(1)
 
-        val shareAlbum = hashMapOf(
-            "shareUserUid" to shareUserUid,
-            "shareAlbumIndex" to shareAlbumIndexList
-        )
+//        val shareAlbum = hashMapOf(
+//            "shareUserUid" to shareUserUid,
+//            "shareAlbumIndex" to shareAlbumIndexList
+//        )
 
         val db = FirebaseFirestore.getInstance()
         val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
-        db.collection("user").document("$userUid")
-            .update("shareAlbumList", FieldValue.arrayUnion(shareAlbumName))
+        // 앨범에 저장 하고 돌아와서 마지막에 shareAlbumList에 추가
+        // intent 성공 받으면 아래 데이터 저장
+//        db.collection("user").document("$userUid")
+//            .update("shareAlbumList", FieldValue.arrayUnion(shareAlbumName))
 
-        db.collection("user").document("$userUid")
-            .collection("ShareAlbum").document("$shareAlbumName")
-            .set(shareAlbum)
+//        db.collection("user").document("$userUid")
+//            .collection("ShareAlbum").document("$shareAlbumName")
+//            .set(shareAlbum)
 
-        progressDialog.dismiss()
-        val intent = Intent(this, ShareTapActivity::class.java)
-        intent.putExtra(AlbumListActivity.ALBUM_DATA, tempArray)
-        intent.putExtra(KEY_ALBUM_NAME, shareAlbumName)
-        intent.putExtra(KEY_SHARE_USER_UID, shareUserUid)
-        startActivity(intent)
+        db.collection("user").document("$shareUserUid")
+            .collection("$shareAlbumName").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d("ssss result", result.toString())
+                    Log.d("ssss result docu", document.toString())
+                    if (document.id.toString() in shareAlbumIndexList!!) {
+                        val temp: SelectImageActivity.dbSite = document.toObject(
+                            SelectImageActivity.dbSite::class.java
+                        )
+                        Log.d("ssss if", temp.toString())
+                        tempArray.add(temp)
+                    }
+                    // document id랑 albumList[adapterPosition].index 비교해서
+                    // 있는거는 add하고 없는건 넘어감
+
+                }
+            }.addOnCompleteListener {
+                tempArray.sortBy { data -> data.date }
+                Log.d("ssss shareclick", tempArray.toString())
+                progressDialog.dismiss()
+                val intent = Intent(this, ShareTapActivity::class.java)
+                intent.putExtra(AlbumListActivity.ALBUM_DATA, tempArray)
+                intent.putExtra(KEY_ALBUM_NAME, shareAlbumName)
+                intent.putExtra(KEY_SHARE_ALBUM_INDEX, shareAlbumIndex)
+                intent.putExtra(KEY_SHARE_USER_UID, shareUserUid)
+                startActivity(intent)  // result 받는 형식으로 변경
+     //           tempArray.clear()
+            }
+
+//        progressDialog.dismiss()
+//        val intent = Intent(this, ShareTapActivity::class.java)
+//        intent.putExtra(AlbumListActivity.ALBUM_DATA, tempArray)
+//        intent.putExtra(KEY_ALBUM_NAME, shareAlbumName)
+//        intent.putExtra(KEY_SHARE_USER_UID, shareUserUid)
+//        startActivity(intent)  // result 받는 형식으로 변경
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
 }

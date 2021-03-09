@@ -113,6 +113,7 @@ class SelectImageActivity : AppCompatActivity() {
                 .maxSelectable(30)  // 최대 선택 이미지(default:5) 필요한만큼 늘리면됨 일단 그냥해둠
                 .gridExpectedSize(resources.getDimensionPixelSize(R.dimen.grid_expected_size))  //
                 .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)  // 160dp
+                .maxOriginalSize(2)
                 .thumbnailScale(0.85f)  // 썸네일 이미지 스케일(85퍼센트 크기)
                 .imageEngine(GlideEngine())  // 이미지 엔진(Picasso 엔진과 Glide 엔진 중 선택가능)
                 // Picasso 엔진으로 선택

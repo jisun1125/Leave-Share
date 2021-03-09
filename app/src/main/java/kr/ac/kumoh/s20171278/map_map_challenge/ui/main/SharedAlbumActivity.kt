@@ -100,24 +100,32 @@ class SharedAlbumActivity : Fragment() {
                             .addOnSuccessListener { result ->
                                 val temp: String? =
                                     result.documents[0].toObject(SelectImageActivity.dbSite::class.java)?.imageArray?.get(0)
-                                val tempUri = Uri.parse(temp)
-                                val pathReference =
-                                    storageRef.child("$userUid/${albumNameList[i]}/${tempUri.lastPathSegment}")
-                                pathReference.downloadUrl.addOnSuccessListener { task ->
-                                    val SdownloadUri: String = task.toString()
-                                    Log.d("ssss uri", SdownloadUri)
-                                    tempShareAlbum.image = SdownloadUri
-                                    albumList.add(
-                                        tempShareAlbum
-                                    )
-                                    if (albumNameList.size == albumList.size){
-                                        Log.d("ssss apdater ", albumNameList.size.toString())
-                                        adapterConnect()
-                                    }
-                                    Log.d("ssss albumList: ", albumList.toString())
+                                tempShareAlbum.image = temp
+                                albumList.add(
+                                    tempShareAlbum
+                                )
+                                if (albumNameList.size == albumList.size){
+                                    Log.d("ssss apdater ", albumNameList.size.toString())
+                                    adapterConnect()
                                 }
+                                Log.d("ssss albumList: ", albumList.toString())
+//                                val tempUri = Uri.parse(temp)
+//                                val pathReference =
+//                                    storageRef.child("$userUid/${albumNameList[i]}/${tempUri.lastPathSegment}")
+//                                pathReference.downloadUrl.addOnSuccessListener { task ->
+//                                    val SdownloadUri: String = task.toString()
+//                                    Log.d("ssss uri", SdownloadUri)
+//                                    tempShareAlbum.image = temp
+//                                    albumList.add(
+//                                        tempShareAlbum
+//                                    )
+//                                    if (albumNameList.size == albumList.size){
+//                                        Log.d("ssss apdater ", albumNameList.size.toString())
+//                                        adapterConnect()
+//                                    }
+//                                    Log.d("ssss albumList: ", albumList.toString())
+//                                }
                             }
-
                     }
             adapterConnect()
         }
@@ -211,13 +219,14 @@ class SharedAlbumActivity : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.sharedUserName.text = albumList[position].shareUser
             holder.sharedAlbumName.text = albumList[position].name
-            if (albumList[position].image != null){
-                Log.d("ssss uri parse", albumList[position].image.toString())
-            }
+//            if (albumList[position].image != null){
+//                Log.d("ssss uri parse", albumList[position].image.toString())
+//            }
 
             val uri: Uri = Uri.parse(albumList[position].image)
             Glide.with(context!!)  // 사진
                 .load(uri)  // 넣을 Uri 데이터
+                .override(200)  // 썸네일 용 사진 크기 조정
                 .centerCrop()  // 센터 크롭 중앙을 기준으로 잘라내기
                 .placeholder(R.drawable.img_default)  // 로드되지 않은 경우 사용될 기본 이미지
                 .into(holder.sharedAlbumCover)  // 들어갈 imageView 위치

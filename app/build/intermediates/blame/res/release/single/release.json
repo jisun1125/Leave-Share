@@ -768,6 +768,10 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\bf31d806d1b47bb2eae4663d2ec9b2d1\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
+        "merged": "C:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\res\\merged\\release\\drawable_splash_leave_1024.png.flat",
+        "source": "C:\\Users\\user\\Leave-Share\\app\\src\\main\\res\\drawable\\splash_leave_1024.png"
+    },
+    {
         "merged": "C:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\bf31d806d1b47bb2eae4663d2ec9b2d1\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },

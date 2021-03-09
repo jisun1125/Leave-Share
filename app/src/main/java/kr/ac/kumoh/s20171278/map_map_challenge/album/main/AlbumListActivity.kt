@@ -210,7 +210,7 @@ class AlbumListActivity : Fragment() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val root = LayoutInflater.from(context).inflate(R.layout.album_activity_album_list_item, parent, false) //context가 없으니ㅏ 이거 씀 applicationContext
+            val root = LayoutInflater.from(context).inflate(R.layout.album_activity_album_list_item, parent, false)
             return ViewHolder(root)
         }
 
@@ -223,6 +223,7 @@ class AlbumListActivity : Fragment() {
    //         val url: String = getUrl(albumList[position].image.toString())
             Glide.with(context!!)  // 사진
                 .load(uri)  // 넣을 Uri 데이터
+                .override(200)  // 썸네일 용 사진 크기 조정
 //                .fit()  // 이미지 늘림없이 imageView에 맞춤
                 .centerCrop()  // 센터 크롭 중앙을 기준으로 잘라내기
                 .placeholder(R.drawable.img_default)  // 로드되지 않은 경우 사용될 기본 이미지

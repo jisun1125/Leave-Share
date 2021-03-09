@@ -1,4 +1,4 @@
-#Sun Feb 21 20:01:37 KST 2021
+#Tue Mar 09 22:50:02 KST 2021
 base.0=C\:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes.dex
 path.1=classes2.dex
 renamed.1=classes2.dex

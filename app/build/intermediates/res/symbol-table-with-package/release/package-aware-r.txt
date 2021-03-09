@@ -1225,6 +1225,7 @@ drawable notify_panel_notification_icon_bg
 drawable splash
 drawable splash_icon
 drawable splash_leave
+drawable splash_leave_1024
 drawable splash_title
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1835,6 +1836,7 @@ string gcm_defaultSenderId
 string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
+string google_maps_key
 string google_storage_bucket
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
