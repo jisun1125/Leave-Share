@@ -4,6 +4,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
+import android.util.Log
 import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
@@ -18,12 +19,15 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.album_fragment_album_memo.*
 import kr.ac.kumoh.s20171278.map_map_challenge.MainActivity.Companion.KEY_ALBUM_NAME
 import kr.ac.kumoh.s20171278.map_map_challenge.R
 import kr.ac.kumoh.s20171278.map_map_challenge.SelectImageActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.hashtag.Hashtag
+import java.net.URL
 import java.util.regex.Pattern
 
 
@@ -44,6 +48,8 @@ class AlbumMemoFragment : Fragment() {
     ): View? {
         albumName = activity?.intent!!.getStringExtra(KEY_ALBUM_NAME)!!
 
+
+       //     albumData[position].imageArray
         val view: View = inflater.inflate(R.layout.album_fragment_album_memo, container, false)
 
         return view
@@ -51,10 +57,24 @@ class AlbumMemoFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        albumData = activity?.intent!!.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)!!
-
+        val mStorage: FirebaseStorage = FirebaseStorage.getInstance()
+        val storageRef: StorageReference = mStorage.reference
         val mAdapter = MemoAdapter()
+        albumData = activity?.intent!!.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)!!
+//        for (i in 0 until albumData.size){
+//            val images = storageRef.child("$userUid/$albumName/$i/").listAll()
+//            for (image in images){
+//                val url =
+//            }
+//            for (j in 0 until albumData[i].imageArray!!.size){
+//
+//                val tempUrl = getUrl(albumData[i].imageArray!![j])
+//                albumData[i].imageArray?.set(j, tempUrl)
+//
+//                Log.d("aaaa albumData", "albumImagd: ${albumData[i].imageArray!![j]} , tempUrl: $tempUrl")
+//            }
+//        }
+
 
         recyclerView.apply {
             setHasFixedSize(true)
@@ -112,6 +132,15 @@ class AlbumMemoFragment : Fragment() {
         return spans
     }
 
+    fun getUrl(filepath: String):String{
+        val mStorage: FirebaseStorage = FirebaseStorage.getInstance()
+        val storageRef: StorageReference = mStorage.reference
+        var returnUrl: String = ""
+
+        val images = storageRef.child("$userUid/$albumName/").listAll()
+        return returnUrl
+    }
+
     inner class MemoAdapter(): RecyclerView.Adapter<MemoAdapter.ViewHolder>() {
         val picasso = Picasso.Builder(activity).build()
 
@@ -136,6 +165,7 @@ class AlbumMemoFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             var imageList: ArrayList<String> = arrayListOf()
             val items: ArrayList<String> = arrayListOf()
+
             albumData[position].imageArray!!.let { items.add(it.toString()) }
 
             var dataDel: List<String> = items
@@ -146,6 +176,19 @@ class AlbumMemoFragment : Fragment() {
             dataSplit = data.split(", ")
             for (j in dataSplit.indices)
                 imageList.add(dataSplit[j])
+//            val mStorage: FirebaseStorage = FirebaseStorage.getInstance()
+//            val storageRef: StorageReference = mStorage.reference
+//            for (j in dataSplit.indices){
+//
+//                storageRef.child(dataSplit[j]).downloadUrl.addOnSuccessListener { task->
+//                    imageList.add(task.toString())
+//                }.addOnFailureListener {
+//                    imageList.add("")
+//                    Log.e("aaaa downloadUri", "null")
+//                }
+//            }
+           //     imageList.add(getUrl(dataSplit[j]))
+            Log.d("aaaa imageList", imageList.toString())
 
             holder.memoSite.text = albumData?.get(position)?.site
             holder.memoTitle.text = albumData?.get(position)?.title
@@ -172,9 +215,11 @@ class AlbumMemoFragment : Fragment() {
                     .from(container.context)
                     .inflate(R.layout.album_fragment_album_memo_viewpager, container, false)
             val image: ImageView = view.findViewById(R.id.memoImage)
+            val items = item[position]
 
-            val items = Uri.parse(item[position])
-         //   Log.d("abc", items.toString())
+     //       val items = Uri.parse(getUrl(item[position]))
+
+            Log.d("aaaa", items.toString())
 
             Glide.with(container.context)
                     .load(items)

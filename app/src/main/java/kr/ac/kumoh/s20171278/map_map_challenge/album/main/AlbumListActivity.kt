@@ -94,28 +94,44 @@ class AlbumListActivity : Fragment() {
                 .collection(albumNameList[i]).get()
                 .addOnSuccessListener { result->
                     val temp: String? = result.documents[0].toObject(SelectImageActivity.dbSite::class.java)?.imageArray?.get(0)
-                    val tempUri = Uri.parse(temp)
-                    var downloadUri: Uri? = null
-                    val pathReference = storageRef.child("$userUid/${albumNameList[i]}/${tempUri.lastPathSegment}")
-                    pathReference.downloadUrl.addOnSuccessListener { task ->
-                        downloadUri = task
-                        val SdownloadUri: String = task.toString()
-                        val tempAlbum = Album(albumNameList[i], SdownloadUri)
-                        albumList.add(tempAlbum)
+                    val tempAlbum = Album(albumNameList[i], temp)
+                    albumList.add(tempAlbum)
 
-                        if (albumNameList.size == albumList.size){
-                            // progress Dialog 종료
+                    if (albumNameList.size == albumList.size){
+                        // progress Dialog 종료
 
-                            Log.d("dd", "어뎁터연결")
-                            if (progressDialog != null){
-                                Log.d("dd", "is showing")
-                             //   progressDialog?.cancel()
+                        Log.d("dd", "어뎁터연결")
+                        if (progressDialog != null){
+                            Log.d("dd", "is showing")
+                            //   progressDialog?.cancel()
 //                                progressDialog?.dismiss()
-                            }
-                            albumList.sortBy { data -> data.name }
-                            adapterConnect()
                         }
+                        albumList.sortBy { data -> data.name }
+                        adapterConnect()
                     }
+//                    val tempUri = Uri.parse(temp)
+//                    var downloadUri: Uri? = null
+//                    val pathReference = storageRef.child("$temp")
+//                    pathReference.downloadUrl.addOnSuccessListener { task ->
+//                        downloadUri = task
+//                        Log.d("aaaa album", "썸네일이미지 temp: $temp, downloadUrl: $downloadUri")
+//                        val SdownloadUri: String = task.toString()
+//                        val tempAlbum = Album(albumNameList[i], SdownloadUri)
+//                        albumList.add(tempAlbum)
+//
+//                        if (albumNameList.size == albumList.size){
+//                            // progress Dialog 종료
+//
+//                            Log.d("dd", "어뎁터연결")
+//                            if (progressDialog != null){
+//                                Log.d("dd", "is showing")
+//                             //   progressDialog?.cancel()
+////                                progressDialog?.dismiss()
+//                            }
+//                            albumList.sortBy { data -> data.name }
+//                            adapterConnect()
+//                        }
+//                    }
                 }
         }
     }
@@ -166,7 +182,7 @@ class AlbumListActivity : Fragment() {
             // 클릭 이벤트
             // SelectionImagePopupActivity : 누른 장소에 있는 사진을 recyclerView 형태로 보여줌
             override fun onClick(v: View?) {
-//                Log.d("ggg albumList click",albumList[adapterPosition].name)
+                Log.d("ggg albumList click",albumList[adapterPosition].name.toString())
                 db.collection("user").document(userUid.toString())
                     .collection(albumList[adapterPosition].name.toString()).get()
                     .addOnSuccessListener { result->
@@ -204,6 +220,7 @@ class AlbumListActivity : Fragment() {
 //                .build()
             holder.albumName.text = albumList[position].name // 앨범 이름
             val uri: Uri = Uri.parse(albumList[position].image)
+   //         val url: String = getUrl(albumList[position].image.toString())
             Glide.with(context!!)  // 사진
                 .load(uri)  // 넣을 Uri 데이터
 //                .fit()  // 이미지 늘림없이 imageView에 맞춤

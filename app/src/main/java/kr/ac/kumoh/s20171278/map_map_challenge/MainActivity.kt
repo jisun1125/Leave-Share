@@ -1,5 +1,6 @@
 package kr.ac.kumoh.s20171278.map_map_challenge
 
+import android.Manifest.permission.ACCESS_MEDIA_LOCATION
 import android.app.ProgressDialog
 import android.app.TaskStackBuilder
 import android.content.Context
@@ -16,6 +17,7 @@ import android.widget.EditText
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -78,6 +80,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     var shareAlbumIndex: String? = null  // 공유한 앨범 중 체크박스로 선택된 메모 리스트. doxId로 구성되있고 ,로 구분함
     // ex) 0, 1, 3, 5번 메모를 선택한 경우 -> '0,1,3,5,'
     val auth = FirebaseAuth.getInstance()
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_main)
@@ -101,7 +104,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         ab.setDisplayShowTitleEnabled(false)
 
         val requestPermissions = arrayOf(
-            android.Manifest.permission.ACCESS_MEDIA_LOCATION,
+            ACCESS_MEDIA_LOCATION,
             android.Manifest.permission.READ_EXTERNAL_STORAGE,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             android.Manifest.permission.INTERNET,
@@ -126,7 +129,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         let {
             userUid = auth.currentUser?.uid
             if (userUid!= null){
-//                Log.d("aaaa userUid", userUid)
+                Log.d("aaaa userUid", userUid.toString())
             }
             FirebaseDynamicLinks.getInstance()
                     .getDynamicLink(intent)
@@ -163,7 +166,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             .addOnSuccessListener { document ->
                 Log.d("ggg album", "${document.id} => ${document.data}")
                 userName = document.get("userName") as String?
-//                Log.d("ggg album", userName)
+              //  Log.d("ggg album", userName)
             }
             .addOnCompleteListener {
                 hid.text = userName
@@ -294,7 +297,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         val shareAlbum = hashMapOf(
             "shareUserUid" to shareUserUid,
-            "shareAlbumIndexList" to shareAlbumIndexList
+            "shareAlbumIndex" to shareAlbumIndexList
         )
 
         val db = FirebaseFirestore.getInstance()

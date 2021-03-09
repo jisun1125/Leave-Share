@@ -2,6 +2,8 @@ package kr.ac.kumoh.s20171278.map_map_challenge.ui.main
 
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.method.LinkMovementMethod
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,6 +25,8 @@ import kr.ac.kumoh.s20171278.map_map_challenge.MainActivity.Companion.KEY_ALBUM_
 import kr.ac.kumoh.s20171278.map_map_challenge.R
 import kr.ac.kumoh.s20171278.map_map_challenge.SelectImageActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumListActivity
+import kr.ac.kumoh.s20171278.map_map_challenge.hashtag.Hashtag
+import java.util.regex.Pattern
 
 class SharedMemoFragment : Fragment() {
     private val imageList = ArrayList<String>()
@@ -61,7 +65,52 @@ class SharedMemoFragment : Fragment() {
         }
         mAdapter.notifyDataSetChanged()
     }
-
+    fun setContent(mTagLists: String?, tags_view: TextView) {
+//        var tag = ""
+        var i:Int = 0
+//        while (i < mTagLists.size)
+//        {
+//            tag += "#" + mTagLists.get(i) + ""
+//            i++
+//        }
+        val tag = mTagLists!!
+        val hashtagSpans = getSpans(tag, '#')
+        val tagsContent : SpannableString = SpannableString(tag)
+        i = 0
+        while (i < hashtagSpans.size)
+        {
+            val span = hashtagSpans.get(i)
+            val hashTagStart = span[0]
+            val hashTagEnd = span[1]
+            val hashTag = Hashtag(context!!)
+            hashTag.setOnClickEventListener(object: Hashtag.ClickEventListener {
+                override fun onClickEvent(data:String) {
+                }
+            })
+            tagsContent.setSpan(hashTag, hashTagStart, hashTagEnd, 0)
+            i++
+        }
+        //   val tags_view = findViewById(R.id.textview_tag) as TextView
+        if (tags_view != null)
+        {
+            tags_view.setMovementMethod(LinkMovementMethod.getInstance())
+            tags_view.setText(tagsContent)
+        }
+    }
+    fun getSpans(body:String, prefix:Char):ArrayList<IntArray> {
+        val spans = ArrayList<IntArray>()
+        val pattern = Pattern.compile(prefix + "\\w+")
+        //complie(prefix + "\\w+")
+        val matcher = pattern.matcher(body)
+        while (matcher.find())
+        {
+            val currentSpan = IntArray(2)
+            currentSpan[0] = matcher.start()
+            currentSpan[1] = matcher.end()
+            spans.add(currentSpan)
+        }
+        return spans
+    }
     inner class MemoAdapter(): RecyclerView.Adapter<MemoAdapter.ViewHolder>() {
         val picasso = Picasso.Builder(activity).build()
 
@@ -102,7 +151,7 @@ class SharedMemoFragment : Fragment() {
             holder.memoViewPager.adapter = ViewPagerAdapter(picasso, imageList)
             holder.memoDate.text = albumData?.get(position)?.date
             holder.memoContent.text = albumData?.get(position)?.content
-            holder.memoTag.text = albumData?.get(position)?.tag
+            setContent(albumData?.get(position)?.tag, holder.memoTag)
         }
     }
 
@@ -125,19 +174,12 @@ class SharedMemoFragment : Fragment() {
             val image: ImageView = view.findViewById(R.id.memoImage)
 
             val items = Uri.parse(item[position])
-            Glide.with(context!!)  // 사진
+            Glide.with(container.context)  // 사진
                 .load(items)  // 넣을 Uri 데이터
 //                .fit()  // 이미지 늘림없이 imageView에 맞춤
                 .centerInside()  // 센터 크롭 중앙을 기준으로 잘라내기
-                .placeholder(R.drawable.img_default)  // 로드되지 않은 경우 사용될 기본 이미지
+                .placeholder(R.color.colorGray)  // 로드되지 않은 경우 사용될 기본 이미지
                 .into(image)  // 들어갈 imageView 위치
-
-//            picasso
-//                    .load(items)
-//                    .placeholder(R.color.colorGray)
-//                    .fit()
-//                    .centerCrop()
-//                    .into(image)
 
             container.addView(view)
             return view
