@@ -113,7 +113,6 @@ class SelectImageActivity : AppCompatActivity() {
                 .maxSelectable(30)  // 최대 선택 이미지(default:5) 필요한만큼 늘리면됨 일단 그냥해둠
                 .gridExpectedSize(resources.getDimensionPixelSize(R.dimen.grid_expected_size))  //
                 .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)  // 160dp
-                .maxOriginalSize(2)
                 .thumbnailScale(0.85f)  // 썸네일 이미지 스케일(85퍼센트 크기)
                 .imageEngine(GlideEngine())  // 이미지 엔진(Picasso 엔진과 Glide 엔진 중 선택가능)
                 // Picasso 엔진으로 선택
@@ -311,7 +310,13 @@ class SelectImageActivity : AppCompatActivity() {
                 // 갤러리 값 받아오는데 사용한 라이브러리 : Matisse
                 uriArray = Matisse.obtainResult(data) as ArrayList<Uri>  // uriArray에 선택한 이미지들의 Uri 넣음
                 pathArray = Matisse.obtainPathResult(data) as ArrayList<String>
+            //    val selectedArray = Matisse.obtainOriginalState(data)
+
                 // 이미지는 사용자가 선택한 순서대로 들어감
+
+//                for (i in 0 until uriArray.size){
+//
+//                }
 
                 // 장소 뽑아 넣기
                 for (i in 0 until uriArray.size) {
