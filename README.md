@@ -5,7 +5,7 @@
 * https://play.google.com/store/apps/details?id=kr.ac.kumoh.s20171278.map_map_challenge
 
 ## 소개
-- 손쉬운 여행 기록과 작성한 여행 기록 공유 기능을 통한 다른 사용자의 여행기와 여행 정보 수집을 돕는 모바일 어플리케이션
+- 사진을 이용한 손쉬운 여행 기록, 공유 기능을 지원하고 여행 정보 수집을 돕는 모바일 어플리케이션
 * 근처 관광지 자동 해시태깅, 관광 정보 조회/검색 기능 추가(한국관광공사 TourAPI 기반)
 * 개발 언어: Kotlin
 * Android Studio, 한국관광공사 TourAPI 국문 관광정보 서비스, Maps SDK for Android, ExifInterface, Firebase, Cloud Firestore, Cloud Storage for Firebase, Firebase Authentication, FIrebase Dynamic Link
@@ -32,7 +32,8 @@
 ### 근처 관광지 정보 조회
 * GPS 좌표를 기준으로 근처 관광지 정보를 제공함
 * 원하는 관광지 목록을 클릭해 상세 정보 조회 가능
-![image](https://user-images.githubusercontent.com/55406486/108613639-2e13b980-7437-11eb-878d-4102f2b162b7.jpg)
+
+<img src="https://user-images.githubusercontent.com/55406486/108613639-2e13b980-7437-11eb-878d-4102f2b162b7.jpg" width="280" >
 
 
 ### 공유 기능
@@ -42,7 +43,8 @@
 ![image](https://user-images.githubusercontent.com/55406486/92083369-e786c000-ee00-11ea-9162-7ed177880962.png)
 ![image](https://user-images.githubusercontent.com/55406486/92083380-eb1a4700-ee00-11ea-8ed6-c1e71d72cadd.png)
 
-(공유 링크 도메인 변경으로 인한 링크 캡쳐 사진 변경)
+(공유 링크 도메인 변경)
+
 (mapmapchallenge.page.link -> leaveshare.page.link)
 
 * 공유 받기
