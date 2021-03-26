@@ -22,17 +22,12 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.search_activity_search.*
 import kotlinx.android.synthetic.main.search_activity_search.recyclerView
-import kotlinx.android.synthetic.main.shared_activity_shared_album.*
-import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumListActivity
-import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.main.DetailMemoActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedAlbumActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedAlbumActivity.*
 import kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedTabActivity
-import org.w3c.dom.Text
 
 class SearchActivity : AppCompatActivity() {
 
@@ -60,6 +55,7 @@ class SearchActivity : AppCompatActivity() {
         type = intent.getStringExtra("type")
         keyword = intent.getIntExtra("keyword", 0)
         userUid = auth.currentUser?.uid
+
         if (userUid== null){
             Toast.makeText(this, "로그인 후 검색할 수 있습니다.", Toast.LENGTH_SHORT).show()
             finish()
@@ -67,7 +63,6 @@ class SearchActivity : AppCompatActivity() {
         db.collection("user").document("$userUid")
             .get().addOnSuccessListener { d ->
                 shareAlbumNameList = d.get("shareAlbumList") as ArrayList<String>
-                Log.d("sss shareAlbum", shareAlbumNameList.toString()) // ok
             }
         if (keyword != 0){
             val hashSearch = type
@@ -86,7 +81,6 @@ class SearchActivity : AppCompatActivity() {
                 object : SearchView.OnQueryTextListener {
                     override fun onQueryTextSubmit(query: String): Boolean {
                         SearchKeyword(type, query)
-
                         return false
                     }
 
@@ -102,12 +96,11 @@ class SearchActivity : AppCompatActivity() {
         searchData.clear()
     }
 
-    fun searchList(filterString: String, tempArray: ArrayList<SelectImageActivity.dbSite>){
+    private fun searchList(filterString: String, tempArray: ArrayList<SelectImageActivity.dbSite>) {
         // temp.site 안에 filterString 글자가 있을 떄 아이템을 FilterList에 담음
         val filterList = tempArray.filter{temp->
             temp.site!!.contains(filterString) || temp.title!!.contains(filterString) || temp.content!!.contains(filterString) || temp.tag!!.contains(filterString)
         }
-
         mArray.clear()
         mArray.addAll(filterList)
 
@@ -122,196 +115,226 @@ class SearchActivity : AppCompatActivity() {
             itemAnimator = DefaultItemAnimator()
         }
         mAdapter.notifyDataSetChanged()
+
     }
 
-    // 앨범 리스트 반환, 공유앨범 리스트 반환 함수로 각각 나눠야 함
     fun SearchKeyword(type: String?, searchText: String){
+        if(type == "all"){
+            allSearch(userUid.toString(), searchText)
+        }
+        else if(type == "album"){
+            albumSearch(userUid.toString(), searchText)
+        }
+        else{
+            shareSearch(userUid.toString(), searchText)
+        }
+    }
+
+    private fun allSearch(userUid: String, searchText: String){
+        var albumNameList: ArrayList<String> = arrayListOf()
         val progressDialog: ProgressDialog = ProgressDialog(this)
         progressDialog.setMessage("$searchText 키워드로 검색 중입니다.")
         progressDialog.setCancelable(true)
         progressDialog.setCanceledOnTouchOutside(false)
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
         progressDialog.show()
-
-        var aMemoCnt = 0
-        var aFlag = false
-
-        var sMemoCnt = 0
-        var sFlag = false
-
         // 앨범 개수 카운트
         var memoCnt = 0
         var albumCnt = 0
-        // 공유 앨범 개수 카운트
         var shareAlbumCnt = 0
-
-        if(type == "all"){
-            // 내 앨범 리스트 받아오기
-            db.collection("user").document("$userUid").get()
-                .addOnSuccessListener { d ->
-                    albumNameList = d.get("albumList") as ArrayList<String>
-                    albumCnt = 0
-                    val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
-                    for (i in 0 until albumNameList.size) {
-
-                        db.collection("user").document("$userUid")
-                            .collection(albumNameList[i]).get()
-                            .addOnSuccessListener { result ->
-                                aMemoCnt = 0
-                                for (document in result) {
-                                    tempArray.add(document.toObject(SelectImageActivity.dbSite::class.java))
-                                    aMemoCnt += 1
-                                }
-                                if (aMemoCnt == result.size()) {
-                                    albumCnt += 1
-                                    if (albumCnt == albumNameList.size && aMemoCnt == result.size()) {
-                                        aFlag = true
-                                        // 공유받은 앨범 리스트 받아오기
-                                        db.collection("user").document("S]$userUid")
-                                            .get().addOnSuccessListener { d ->
-                                                shareAlbumNameList = d.get("albumList") as ArrayList<String>
-
-                                                when (shareAlbumNameList.size) {
-                                                    0 -> {
-                                                        searchList(searchText, tempArray)
-                                                        progressDialog.dismiss()
+        val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
+        db.collection("user").document("$userUid").get()
+            .addOnSuccessListener { d ->
+                albumNameList = d.get("albumList") as ArrayList<String>
+                albumCnt = 0
+                for (i in 0 until albumNameList.size) {
+                    db.collection("user").document("$userUid")
+                        .collection(albumNameList[i]).get()
+                        .addOnSuccessListener { result ->
+                            memoCnt = 0
+                            for (document in result) {
+                                tempArray.add(document.toObject(SelectImageActivity.dbSite::class.java))
+                                memoCnt += 1
+                            }
+                            if (memoCnt == result.size()) {
+                                albumCnt += 1
+                                if (albumCnt == albumNameList.size && memoCnt == result.size()) {
+                                    for (j in 0 until shareAlbumNameList.size) {
+                                        var shareUserUid: String = ""
+                                        // 공유앨범 정보(제목, 앨범 공유자 uid, 앨범 공유자 이름, 인덱스 List) 보관
+                                        var tempShareAlbum: SharedAlbumActivity.ShareAlbum = SharedAlbumActivity.ShareAlbum(
+                                            name = shareAlbumNameList[j]
+                                        )
+                                        db.collection("user").document(userUid.toString())
+                                            .collection("ShareAlbum").document(shareAlbumNameList[j]).get()
+                                            .addOnSuccessListener { result ->
+                                                tempShareAlbum.index =
+                                                    result.get("shareAlbumIndex") as ArrayList<String>
+                                                shareUserUid = result.get("shareUserUid") as String
+                                                tempShareAlbum.shareUserUid = shareUserUid
+                                                db.collection("user").document(shareUserUid).get()
+                                                    .addOnSuccessListener { result ->
+                                                        tempShareAlbum.shareUser =
+                                                            result.get("userName") as String
                                                     }
-                                                    else -> {
-                                                        shareAlbumCnt = 0
-                                                        for (j in 0 until shareAlbumNameList.size) {
-
-                                                            db.collection("user").document("S]$userUid")
-                                                                .collection(shareAlbumNameList[j]).get()
-                                                                .addOnSuccessListener { result ->
-                                                                    memoCnt = 0
-                                                                    for (document in result) {
-                                                                        tempArray.add(document.toObject(SelectImageActivity.dbSite::class.java))
-                                                                        memoCnt += 1
-                                                                    }
-                                                                    if (memoCnt == result.size()) {
-                                                                        shareAlbumCnt += 1
-                                                                        if (shareAlbumCnt == shareAlbumNameList.size && memoCnt == result.size()) {
-                                                                            searchList(searchText, tempArray)
-                                                                            progressDialog.dismiss()
-                                                                        }
-                                                                    }
-                                                                }
-                                                                .addOnFailureListener { e ->
-                                                                    Log.d("aaaa search", "error $e")
-                                                                }
-
+                                                db.collection("user").document(shareUserUid)
+                                                    .collection(shareAlbumNameList[j]).get()
+                                                    .addOnSuccessListener { result ->
+                                                        memoCnt = 0
+                                                        for (document in result) {
+                                                            memoCnt += 1
+                                                            if (document.id.toString() in tempShareAlbum.index) {
+                                                                val temp: SelectImageActivity.dbSite =
+                                                                    document.toObject(
+                                                                        SelectImageActivity.dbSite::class.java
+                                                                    )
+                                                                temp.shareUser = tempShareAlbum.shareUser
+                                                                tempArray.add(temp)
+                                                            }
+                                                        }
+                                                        if (memoCnt == result.size()) {
+                                                            shareAlbumCnt += 1
+                                                            if (shareAlbumCnt == shareAlbumNameList.size && memoCnt == result.size()) {
+                                                                progressDialog.dismiss()
+                                                                searchList(searchText, tempArray)
+                                                            }
                                                         }
                                                     }
-                                                }
-
-
+                                            }
+                                            .addOnFailureListener { e ->
+                                                Log.d("ssss search", "error $e")
                                             }
                                     }
                                 }
                             }
-                            .addOnFailureListener { e ->
-                                Log.d("aaaa search", "error $e")
-                            }
+                        }
+                        .addOnFailureListener { e ->
+                            Log.d("ssss search", "error $e")
+                        }
 
-                    }
                 }
-
-
-        }
-        else if(type == "album"){
-            // 내 앨범 리스트 받아오기
-            db.collection("user").document("$userUid").get()
-                .addOnSuccessListener { d ->
-                    albumNameList = d.get("albumList") as ArrayList<String>
-                    albumCnt = 0
-                    val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
-                    for (i in 0 until albumNameList.size) {
-                        db.collection("user").document("$userUid")
-                            .collection(albumNameList[i]).get()
-                            .addOnSuccessListener { result ->
-                                memoCnt = 0
-                                for (document in result) {
-                                    tempArray.add(document.toObject(SelectImageActivity.dbSite::class.java))
-                                    memoCnt += 1
-                                }
-                                if (memoCnt == result.size()) {
-                                    albumCnt += 1
-                                    if (albumCnt == albumNameList.size && memoCnt == result.size()) {
-                                        searchList(searchText, tempArray)
-                                        progressDialog.dismiss()
-                                        searchData = tempArray
-                                    }
-                                }
-                            }
-                            .addOnFailureListener { e ->
-                                Log.d("aaaa search", "error $e")
-                            }
-
-                    }
-                }
-        }
-
-        //share
-        else{
-            val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
-            for (i in 0 until shareAlbumNameList.size) {
-                var shareAlbumIndex: ArrayList<String> = arrayListOf()
-                var shareUserUid: String = ""
-                // 공유앨범 정보(제목, 앨범 공유자 uid, 앨범 공유자 이름, 인덱스 List) 보관
-                var tempShareAlbum: ShareAlbum = ShareAlbum(
-                    name = shareAlbumNameList[i]
-                )
-                db.collection("user").document(userUid.toString())
-                    .collection("ShareAlbum").document(shareAlbumNameList[i]).get()
-                    .addOnSuccessListener { result ->
-                        tempShareAlbum.index =
-                            result.get("shareAlbumIndex") as ArrayList<String>
-                        shareUserUid = result.get("shareUserUid") as String
-                        tempShareAlbum.shareUserUid = shareUserUid
-                        db.collection("user").document(shareUserUid).get()
-                            .addOnSuccessListener { result ->
-                                tempShareAlbum.shareUser =
-                                    result.get("userName") as String
-                            }
-                        db.collection("user").document(shareUserUid)
-                            .collection(shareAlbumNameList[i]).get()
-                            .addOnSuccessListener { result ->
-                                memoCnt = 0
-                                for (document in result) {
-                                    memoCnt += 1
-                                    if (document.id.toString() in tempShareAlbum.index) {
-                                        val temp: SelectImageActivity.dbSite =
-                                            document.toObject(
-                                                SelectImageActivity.dbSite::class.java
-                                            )
-                                        temp.shareUser = tempShareAlbum.shareUser
-                                        Log.d("ssss if", temp.toString())
-                                        tempArray.add(temp)
-                                    }
-                                }
-                                if (memoCnt == result.size()) {
-                                    shareAlbumCnt += 1
-                                    if (shareAlbumCnt == shareAlbumNameList.size && memoCnt == result.size()) {
-                                        searchList(searchText, tempArray)
-                                        progressDialog.dismiss()
-                                        searchData = tempArray
-                                        Log.d("ssss searchData", searchData.toString())
-                                    }
-                                }
-                            }
-                    }
-                    .addOnFailureListener { e ->
-                        Log.d("aaaa search", "error $e")
-                    }
             }
-            shareAlbumCnt = 0
-        }
 
     }
 
-    inner class MemoAdapter(): RecyclerView.Adapter<MemoAdapter.ViewHolder>() {
-//        val picasso = Picasso.Builder(applicationContext).build()
 
+    private fun albumSearch(userUid: String, searchText: String) {
+        var albumNameList: ArrayList<String> = arrayListOf()
+        val progressDialog: ProgressDialog = ProgressDialog(this)
+        progressDialog.setMessage("$searchText 키워드로 검색 중입니다.")
+        progressDialog.setCancelable(true)
+        progressDialog.setCanceledOnTouchOutside(false)
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
+        progressDialog.show()
+        // 앨범 개수 카운트
+        var memoCnt = 0
+        var albumCnt = 0
+        val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
+        db.collection("user").document(userUid).get()
+            .addOnSuccessListener { d ->
+                albumNameList = d.get("albumList") as ArrayList<String>
+                albumCnt = 0
+
+                for (i in 0 until albumNameList.size) {
+                    db.collection("user").document("$userUid")
+                        .collection(albumNameList[i]).get()
+                        .addOnSuccessListener { result ->
+                            memoCnt = 0
+                            for (document in result) {
+                                tempArray.add(document.toObject(SelectImageActivity.dbSite::class.java))
+                                memoCnt += 1
+                            }
+                            if (memoCnt == result.size()) {
+                                albumCnt += 1
+                                if (albumCnt == albumNameList.size && memoCnt == result.size()) {
+                                    searchData = tempArray
+                                    progressDialog.dismiss()
+                                    searchList(searchText, tempArray)
+                                }
+                            }
+                        }
+                        .addOnFailureListener { e ->
+                            Log.d("ssss search", "error $e")
+                        }
+
+                }
+            }
+    }
+
+    private fun shareSearch(userUid: String, searchText: String){
+        var shareAlbumNameList: ArrayList<String> = arrayListOf()
+
+        val progressDialog: ProgressDialog = ProgressDialog(this)
+        progressDialog.setMessage("$searchText 키워드로 검색 중입니다.")
+        progressDialog.setCancelable(true)
+        progressDialog.setCanceledOnTouchOutside(false)
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
+        progressDialog.show()
+        // 앨범 개수 카운트
+        var memoCnt = 0
+        // 공유 앨범 개수 카운트
+        var shareAlbumCnt = 0
+        val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
+
+        db.collection("user").document("$userUid")
+            .get().addOnSuccessListener { d ->
+                shareAlbumNameList = d.get("shareAlbumList") as ArrayList<String>
+                Log.d("sss shareAlbum", shareAlbumNameList.toString()) // ok
+            }
+
+        for (i in 0 until shareAlbumNameList.size) {
+            var shareUserUid: String = ""
+            // 공유앨범 정보(제목, 앨범 공유자 uid, 앨범 공유자 이름, 인덱스 List) 보관
+            val tempShareAlbum: SharedAlbumActivity.ShareAlbum = SharedAlbumActivity.ShareAlbum(
+                name = shareAlbumNameList[i]
+            )
+            db.collection("user").document(userUid.toString())
+                .collection("ShareAlbum").document(shareAlbumNameList[i]).get()
+                .addOnSuccessListener { result ->
+                    tempShareAlbum.index =
+                        result.get("shareAlbumIndex") as ArrayList<String>
+                    shareUserUid = result.get("shareUserUid") as String
+                    tempShareAlbum.shareUserUid = shareUserUid
+                    db.collection("user").document(shareUserUid).get()
+                        .addOnSuccessListener { result ->
+                            tempShareAlbum.shareUser =
+                                result.get("userName") as String
+                        }
+                    db.collection("user").document(shareUserUid)
+                        .collection(shareAlbumNameList[i]).get()
+                        .addOnSuccessListener { result ->
+                            memoCnt = 0
+                            for (document in result) {
+                                memoCnt += 1
+                                if (document.id.toString() in tempShareAlbum.index) {
+                                    val temp: SelectImageActivity.dbSite =
+                                        document.toObject(
+                                            SelectImageActivity.dbSite::class.java
+                                        )
+                                    temp.shareUser = tempShareAlbum.shareUser
+                                    Log.d("ssss if", temp.toString())
+                                    tempArray.add(temp)
+                                }
+                            }
+                            if (memoCnt == result.size()) {
+                                shareAlbumCnt += 1
+                                if (shareAlbumCnt == shareAlbumNameList.size && memoCnt == result.size()) {
+                                    progressDialog.dismiss()
+                                    searchList(searchText, tempArray)
+                                    searchData = tempArray
+                                }
+                            }
+                        }
+                }
+                .addOnFailureListener { e ->
+                    Log.d("ssss search", "error $e")
+                }
+        }
+    }
+
+
+
+    inner class MemoAdapter(): RecyclerView.Adapter<MemoAdapter.ViewHolder>() {
         inner class ViewHolder : RecyclerView.ViewHolder, View.OnClickListener{
             val searchTitle: TextView
             val searchContent: TextView
@@ -335,7 +358,7 @@ class SearchActivity : AppCompatActivity() {
                 val tempIntentAlbum: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
                 if (tempClicked.albumName in shareAlbumNameList){
                     // 공유 앨범 검색
-                    var tempShareAlbum: ShareAlbum = ShareAlbum(
+                    val tempShareAlbum: ShareAlbum = ShareAlbum(
                         name = tempClicked.albumName
                     )
                     val intent = Intent(applicationContext, SharedTabActivity::class.java)
@@ -370,11 +393,9 @@ class SearchActivity : AppCompatActivity() {
                         }
                 }
                 else{
-                    // 앨범 검색 결과
-                   // Toast.makeText(applicationContext, "앨범 검색 결과 click event", Toast.LENGTH_LONG).show()
+                    // 앨범 검색
                     db.collection("user").document("$userUid")
                         .collection("${tempClicked.albumName}").get().addOnSuccessListener { result->
-
                             for (document in result){
                                 tempIntentAlbum.add(document.toObject(SelectImageActivity.dbSite::class.java))
                             }
@@ -387,10 +408,6 @@ class SearchActivity : AppCompatActivity() {
                             }
                         }
                 }
-
-//                intent.putExtra(DetailMemoActivity.KEY_ALBUM_NAME, tempClicked.albumName)
-//                startActivity(intent)
-
             }
         }
 
@@ -410,7 +427,7 @@ class SearchActivity : AppCompatActivity() {
 
             holder.searchTitle.text = mArray.get(position).site
             holder.searchViewPager.adapter = ViewPagerAdapter(
-                mArray.get(position).imageArray!!
+                mArray[position].imageArray!!
             )
             holder.searchContent.text = mArray.get(position).date
             holder.searchAlbum.text = mArray.get(position).albumName
@@ -440,7 +457,6 @@ class SearchActivity : AppCompatActivity() {
             Glide.with(container.context)
                 .load(items)
                 .placeholder(R.color.colorGray)
-//                .fit()
                 .centerCrop()
                 .into(image)
 
