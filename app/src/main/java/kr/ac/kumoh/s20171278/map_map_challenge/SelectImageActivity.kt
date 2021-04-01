@@ -104,7 +104,7 @@ class SelectImageActivity : AppCompatActivity() {
         albumName = intent.getStringExtra(MainActivity.KEY_ALBUM_NAME)!!
         set_date.text = albumName
 
-        if (isTesting == false){
+        if (!isTesting){
             // 깃헙 링크 : https://github.com/zhihu/Matisse
             // 사진 선택할 때 사용한 라이브러리 : Matisse
             Matisse.from(this)
@@ -149,6 +149,7 @@ class SelectImageActivity : AppCompatActivity() {
             Log.d("lll", "tempSize: $tempSize, tempLen: $tempLen, tempTagArray size: ${tempTagArray.size}")
 
             for(i in 0 until checkList.size){
+                val progressDialog: ProgressDialog = ProgressDialog(this)
                 if(checkList[i]){
                     Log.d("lll", "$i 번째 체크")
                     tempTagArray[i] = ""
@@ -156,72 +157,84 @@ class SelectImageActivity : AppCompatActivity() {
                     var clrCnt: Int = 0
                     var clrBoolean: Boolean = true
                     for (j in 0 until mPathArray[i].imageArray!!.size){
-                        val progressDialog: ProgressDialog = ProgressDialog(this)
-                        progressDialog.setMessage("태그를 다는 중입니다.")
-                        progressDialog.setCancelable(true)
-                        progressDialog.setCanceledOnTouchOutside(false)
-                        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
-                        progressDialog.show()
+                        // 주서없는 사진에 태그는 안 달리게 했는데 다이얼로그가 안사라지거나 안나타나거나 그럼,,,
+                            // 어디 넣어도 안 고쳐져서 일단 생성과 동시에 사라져서 안보이게 놔둠,,,,
+                        try {
+                            progressDialog.setMessage("태그를 다는 중입니다.")
+                            progressDialog.setCancelable(true)
+                            progressDialog.setCanceledOnTouchOutside(false)
+                            progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
+                            progressDialog.show()
 
-                        val tempExifInterface = ExifInterface(mPathArray[i].imageArray?.get(j)!!)
-                        val la : Double = getLa(tempExifInterface)
-                        val lo : Double = getLo(tempExifInterface)
-                        val url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?MobileOS=AND&MobileApp=TestApp&ServiceKey="+key+"&listYN=Y&contentTypeId=12&arrange=S&mapX=$lo&mapY=$la&radius=2000&_type=json"
-                     //   Log.d("lll", "la : $la, lo: $lo")
+                            val tempExifInterface = ExifInterface(mPathArray[i].imageArray?.get(j)!!)
+                            val la : Double = getLa(tempExifInterface)
+                            val lo : Double = getLo(tempExifInterface)
+                            val url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?MobileOS=AND&MobileApp=TestApp&ServiceKey="+key+"&listYN=Y&contentTypeId=12&arrange=S&mapX=$lo&mapY=$la&radius=2000&_type=json"
+                            //   Log.d("lll", "la : $la, lo: $lo")
 
-                        var resultTitle: String? = null
+                            var resultTitle: String? = null
 
-                        mQueue = Volley.newRequestQueue(this)
+                            mQueue = Volley.newRequestQueue(this)
 
-                        val request = JsonObjectRequest(
-                            Request.Method.GET,
-                            url, null,
-                            Response.Listener { response ->
-                                val bodyObj: JSONObject = response.getJSONObject("response").getJSONObject("body")
-                                val items: JSONObject? = bodyObj.optJSONObject("items")
-                                if(items==null){
-                                    Log.d("lll items null", "$i 번째 items: "+ items)
-                                    // Toast.makeText(this, "근처 관광 정보가 없어요", Toast.LENGTH_LONG).show()
-                                }
-                                else if(bodyObj.getInt("totalCount") == 1){
-                                    val item: JSONObject = items.getJSONObject("item")
-                                    resultTitle= item.getString("title")
-                                }
-                                else{
-                                    val item: JSONArray = items.getJSONArray("item")
-                                    val touristData: JSONObject = item.getJSONObject(0)
-                                    resultTitle = touristData.getString("title")
-                                }
+                            val request = JsonObjectRequest(
+                                Request.Method.GET,
+                                url, null,
+                                Response.Listener { response ->
+                                    val bodyObj: JSONObject = response.getJSONObject("response").getJSONObject("body")
+                                    val items: JSONObject? = bodyObj.optJSONObject("items")
+                                    if(items==null){
+                                        Log.d("lll items null", "$i 번째 items: "+ items)
+                                        // Toast.makeText(this, "근처 관광 정보가 없어요", Toast.LENGTH_LONG).show()
+                                    }
+                                    else if(bodyObj.getInt("totalCount") == 1){
+                                        val item: JSONObject = items.getJSONObject("item")
+                                        resultTitle= item.getString("title")
+                                    }
+                                    else{
+                                        val item: JSONArray = items.getJSONArray("item")
+                                        val touristData: JSONObject = item.getJSONObject(0)
+                                        resultTitle = touristData.getString("title")
+                                    }
 
-                                if(resultTitle!=null){
-                                    val replace = resultTitle!!.replace(" ", "")
-                                    val replace2 = replace.replace("\\[[^]]*\\]".toRegex(), "")
-                                    val replace3 = replace2.replace("\\([^)]*\\)".toRegex(), "")
-                                    Log.d("lll", "replace 1: $replace, 2: $replace2, 3: $replace3")
-                                    tempTagArray[i] += " $replace3"
-                                    Log.d("lll", "$i 번째 tempTagArray: ${tempTagArray[i]}, clrCnt: $clrCnt")
-                                   // tempTagArray.add(resultTitle.toString())
+                                    if(resultTitle!=null){
+                                        val replace = resultTitle!!.replace(" ", "")
+                                        val replace2 = replace.replace("\\[[^]]*\\]".toRegex(), "")
+                                        val replace3 = replace2.replace("\\([^)]*\\)".toRegex(), "")
+                                        Log.d("lll", "replace 1: $replace, 2: $replace2, 3: $replace3")
+                                        tempTagArray[i] += " $replace3"
+                                        Log.d("lll", "$i 번째 tempTagArray: ${tempTagArray[i]}, clrCnt: $clrCnt")
+                                        // tempTagArray.add(resultTitle.toString())
+                                    }
+                                    if(mPathArray[i].imageArray!!.size-1 == clrCnt) {
+                                        val tempTagSplit = tempTagArray[i]?.split(" ")?.distinct()
+                                        Log.d("lll", "split: $tempTagSplit")
+                                        //  val tempDis = tempTagSplit!!.distinct()
+                                        Log.d("lll", "distinct(): $tempTagSplit")
+                                        val tempTagSplitJoin = tempTagSplit?.joinToString("#")
+                                        Log.d("lll", "join: $tempTagSplitJoin")
+                                        mArray[i].tag = tempTagSplitJoin
+                                        Log.d("lll", "최종 관광지 태그: ${mArray[i].tag}")
+                                    }
+                                    else{
+                                        clrCnt += 1
+                                    }
+//                                    progressDialog.dismiss()
+                                },
+                                Response.ErrorListener { error -> Log.e("RESULT", error.toString())
                                 }
-                                if(mPathArray[i].imageArray!!.size-1 == clrCnt) {
-                                    val tempTagSplit = tempTagArray[i]?.split(" ")?.distinct()
-                                    Log.d("lll", "split: $tempTagSplit")
-                                  //  val tempDis = tempTagSplit!!.distinct()
-                                    Log.d("lll", "distinct(): $tempTagSplit")
-                                    val tempTagSplitJoin = tempTagSplit?.joinToString("#")
-                                    Log.d("lll", "join: $tempTagSplitJoin")
-                                    mArray[i].tag = tempTagSplitJoin
-                                    Log.d("lll", "최종 관광지 태그: ${mArray[i].tag}")
-                                }
-                                else{
-                                    clrCnt += 1
-                                }
-                                progressDialog.dismiss()
-                            },
-                            Response.ErrorListener { error -> Log.e("RESULT", error.toString())
-                            }
-                        )
-                        request.tag = TourListActivity.QUEUE_TAG
-                        mQueue.add(request)
+                            )
+                            request.tag = TourListActivity.QUEUE_TAG
+                            mQueue.add(request)
+                        }catch (e: java.lang.NullPointerException){
+                            mArray[i].tag = ""
+//                            clrCnt += 1
+//                            progressDialog.dismiss()
+                            Log.d("lll", "최종 관광지 태그 -no: ${mArray[i].tag}")
+                        }
+                        finally {
+                            progressDialog.dismiss()
+                        }
+
                     }
                     if (mPathArray[i].imageArray!!.size == clrCnt){
                         // 중복 제거
@@ -314,18 +327,30 @@ class SelectImageActivity : AppCompatActivity() {
 
                 // 장소 뽑아 넣기
                 for (i in 0 until uriArray.size) {
-                    dataArray.add(
-                        ImageData(
-                            getAddress(pathArray[i]),
-                            getTime(pathArray[i]),
-                            uriArray[i],
-                            pathArray[i]
+                    if (getAddress(pathArray[i]) == "주소없음"){
+                        dataArray.add(
+                            ImageData(
+                                "",
+                                getTime(pathArray[i]),
+                                uriArray[i],
+                                pathArray[i]
+                            )
                         )
-                    )
+                    }
+                    else{
+                        dataArray.add(
+                            ImageData(
+                                getAddress(pathArray[i]),
+                                getTime(pathArray[i]),
+                                uriArray[i],
+                                pathArray[i]
+                            )
+                        )
+                    }
                  //   checkList.add(i,false)
                 }
 
-            //    Log.d("lll", "dataArray: ${dataArray.size}, $dataArray")
+                Log.d("8888", "dataArray: ${dataArray.size}, $dataArray")
 
                 // 장소로 정렬
                 // data.date 으로 바꾸면 시간으로 정렬
@@ -349,7 +374,7 @@ class SelectImageActivity : AppCompatActivity() {
                 null,
                 dataArray[0].date
             )
-
+        Log.d("8888", "dbTempSite: $dbTempSite")
         var dbImagePathSite =
             dbSite(
                 dataArray[0].site,
@@ -367,10 +392,6 @@ class SelectImageActivity : AppCompatActivity() {
         var docIdCnd = 0
 
         if(dataArray.size == 1){  // 사진이 한 장이 경우
-            if (dbTempSite.site.toString() == "주소없음"){
-                // continue
-                Log.d("dataArray", "사진 한장인데 주소도없음")
-            }else{
                 mArray.add(
                     dbSite(
                         docId = docIdCnd,
@@ -390,15 +411,11 @@ class SelectImageActivity : AppCompatActivity() {
                     )
                 )
                 checkList.add(false)
-            }
         }
 
         for (i in 1 until dataArray.size){
             Log.d("aaa docIdCnd", docIdCnd.toString())
             if (dbTempSite.site != dataArray[i].site) {  // 장소가 다른 경우 || 장소가 같더라도 사진의 시간이 다른 경우
-                if (dbTempSite.site.toString() == "주소없음"){
-                    continue
-                }else {
                     mArray.add(
                         dbSite(
                             docId = docIdCnd,
@@ -419,7 +436,6 @@ class SelectImageActivity : AppCompatActivity() {
                     )
                     checkList.add(false)
                     docIdCnd += 1
-                }
                 dbTempSite =
                     dbSite(
                         dataArray[i].site,
@@ -441,9 +457,6 @@ class SelectImageActivity : AppCompatActivity() {
                 StempPathArray.add(dataArray[i].path.toString())
             }
             if (i == dataArray.size-1){  // 마지막 사진 처리
-                if (dbTempSite.site.toString() == "주소없음"){
-                    continue
-                }else{
                     mArray.add(
                         dbSite(
                             docId = docIdCnd,
@@ -464,7 +477,6 @@ class SelectImageActivity : AppCompatActivity() {
                     )
                     checkList.add(false)
                     docIdCnd += 1
-                }
             }
         }
     }
@@ -499,15 +511,20 @@ class SelectImageActivity : AppCompatActivity() {
 
             val mGeocoder: Geocoder = Geocoder(this)
             val mResultList: List<Address> = mGeocoder.getFromLocation(latiD, longD, 2)
+            Log.d("8888", "mResultList: $mResultList")
             if (mResultList.isNotEmpty()){
                 var address = mResultList[0].getAddressLine(0)
                 var add = address.split(" ")
                 var finalAdd = ""
                 for (i in 1..3)
                     finalAdd += add[i] + " "
+                Log.d("8888", "getAddress: $finalAdd")
                 return finalAdd
             }
-        } catch (e: IOException) {  // 주소일 경우
+        } catch (e: NullPointerException) {  // 주소가 없을 경우
+            Log.d("8888", "no address")
+            return "주소없음"
+        } catch (e: IOException){
             Log.e("llla", e.toString())
         }
 
@@ -517,6 +534,7 @@ class SelectImageActivity : AppCompatActivity() {
     private fun getLa(exif: ExifInterface): Double{
         val latitude: List<String> = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE)!!.split("/", ",")  // 위도 결과에서 기호를 제외한 문자열 배열 생성
         val latiD = convertGps(latitude)
+
         return latiD
 
     }

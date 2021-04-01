@@ -63,39 +63,42 @@ class MainMapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
         val polyLineOptions: PolylineOptions = PolylineOptions()
 
         for (i in 0 until albumData!!.size){
-            // 주소 -> 좌표
-            siteList = mGeocoder.getFromLocationName(
-                albumData?.get(i)?.site,
-                100
-            )
+            if (albumData[i].site == "") {
+                continue
+            }
+            else {
+                // 주소 -> 좌표
+                siteList = mGeocoder.getFromLocationName(
+                    albumData?.get(i)?.site,
+                    100
+                )
 
-            var split = siteList[0].toString().split(",")
-            var lati = split[10].substring(split[10].indexOf("=") + 1)
-            var long = split[12].substring(split[12].indexOf("=") + 1)
-            albumData.get(i).lati = lati.toDouble()
-            albumData.get(i).long = long.toDouble()
-            Log.d("llla", "siteList: $siteList, ")
-            Log.d("llla", "albumData ${albumData.get(i).site}, la: ${albumData.get(i).lati}, lo: ${albumData.get(i).long}")
-            loca = LatLng(lati.toDouble(), long.toDouble())
+                var split = siteList[0].toString().split(",")
+                var lati = split[10].substring(split[10].indexOf("=") + 1)
+                var long = split[12].substring(split[12].indexOf("=") + 1)
+                albumData[i].lati = lati.toDouble()
+                albumData[i].long = long.toDouble()
+                Log.d("llla", "siteList: $siteList, ")
+                Log.d("llla", "albumData ${albumData.get(i).site}, la: ${albumData.get(i).lati}, lo: ${albumData.get(i).long}")
+                loca = LatLng(lati.toDouble(), long.toDouble())
 
-            locaArray.add(loca)
-            // 마커표시
-            marker.position(loca)
-            googleMap.addMarker(marker)
+                locaArray.add(loca)
+                // 마커표시
+                marker.position(loca)
+                googleMap.addMarker(marker)
 
-            googleMap.setOnMarkerClickListener(this)
-            val boundsBuilder: LatLngBounds.Builder = LatLngBounds.builder()
-            for (i in 0 until locaArray.size)
-                boundsBuilder.include(locaArray[i])
-            var bounds: LatLngBounds = boundsBuilder.build()
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 200))
-        }
+                googleMap.setOnMarkerClickListener(this)
+                val boundsBuilder: LatLngBounds.Builder = LatLngBounds.builder()
+                for (i in 0 until locaArray.size)
+                    boundsBuilder.include(locaArray[i])
+                var bounds: LatLngBounds = boundsBuilder.build()
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 200))
+            }
         // 경로표시
-        polyLineOptions.width(5f)
-            .color(Color.RED)
+        polyLineOptions.width(5f).color(Color.RED)
         polyLineOptions.addAll(locaArray)
         googleMap.addPolyline(polyLineOptions)
-
+        }
     }
 
 
