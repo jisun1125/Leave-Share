@@ -52,6 +52,10 @@ class AlbumDetailMemoActivity : AppCompatActivity() {
         var loca: LatLng
 
         for (i in 0 until albumData.size) {
+            if (albumData?.get(i)?.site == "") {
+                locaArray.add(LatLng(0.0, 0.0))
+            }
+            else {
             // 주소 -> 좌표
             siteList = mGeocoder.getFromLocationName(
                 albumData?.get(i)?.site,
@@ -63,26 +67,32 @@ class AlbumDetailMemoActivity : AppCompatActivity() {
             var long = split[12].substring(split[12].indexOf("=") + 1)
             loca = LatLng(lati.toDouble(), long.toDouble())
             locaArray.add(loca)
+            }
         }
 
         for (i in 0 until albumData.size) {
-            if (markerPos == locaArray[i]) {
-                var change = albumData[i].imageArray.toString()
+            if (locaArray[i] == LatLng(0.0, 0.0)) {
+                continue
+            }
+            else {
+                if (markerPos == locaArray[i]) {
+                    var change = albumData[i].imageArray.toString()
 
-                var delChange = change.replace("[", "")
-                delChange = delChange.replace("]", "")
+                    var delChange = change.replace("[", "")
+                    delChange = delChange.replace("]", "")
 
-                var splChange = delChange.split(", ")
-                var album: ArrayList<String> = arrayListOf()
-                for (element in splChange)
-                    album.add(element)
+                    var splChange = delChange.split(", ")
+                    var album: ArrayList<String> = arrayListOf()
+                    for (element in splChange)
+                        album.add(element)
 
-                aMemoSite.text = albumData[i].site
-                aMemoTitle.text = albumData[i].title
-                aMemoView.adapter = ViewPagerAdapter(albumData[i].imageArray!!)
-                aMemoDate.text = albumData[i].date
-                aMemoContent.text = albumData[i].content
-                setContent(albumData?.get(i)?.tag, aMemoTag)
+                    aMemoSite.text = albumData[i].site
+                    aMemoTitle.text = albumData[i].title
+                    aMemoView.adapter = ViewPagerAdapter(albumData[i].imageArray!!)
+                    aMemoDate.text = albumData[i].date
+                    aMemoContent.text = albumData[i].content
+                    setContent(albumData?.get(i)?.tag, aMemoTag)
+                }
             }
         }
 

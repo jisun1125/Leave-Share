@@ -48,7 +48,12 @@ class AlbumMapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
         albumData = activity?.intent!!.getParcelableArrayListExtra(AlbumListActivity.ALBUM_DATA)!!
 
         for (i in 0 until albumData.size){
-            locaArray.add(LatLng(albumData[i].lati, albumData[i].long))
+            if (LatLng(albumData[i].lati, albumData[i].long) == LatLng(0.0, 0.0)) {
+                continue
+            }
+            else {
+                locaArray.add(LatLng(albumData[i].lati, albumData[i].long))
+            }
         }
 
         var rootView = inflater.inflate(R.layout.album_fragment_album_map, container, false)
@@ -64,6 +69,7 @@ class AlbumMapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
         val marker: MarkerOptions = MarkerOptions()
         var polyLineOptions: PolylineOptions = PolylineOptions()
 
+        Log.d("999", "locaArray: $locaArray" + locaArray.size)
         for (i in 0 until locaArray.size){
             // 마커표시
 
@@ -76,8 +82,7 @@ class AlbumMapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
             var bounds: LatLngBounds = boundsBuilder.build()
             googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 200))
         }
-        polyLineOptions.width(5f)
-            .color(Color.RED)
+        polyLineOptions.width(5f).color(Color.RED)
         polyLineOptions.addAll(locaArray)
         googleMap.addPolyline(polyLineOptions)
 
