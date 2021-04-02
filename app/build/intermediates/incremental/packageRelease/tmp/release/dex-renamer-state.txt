@@ -1,7 +1,7 @@
-#Fri Mar 26 18:35:41 KST 2021
-base.0=C\:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes.dex
+#Fri Apr 02 21:33:32 KST 2021
+base.0=C\:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 path.1=classes2.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes2.dex
+base.1=C\:\\Users\\user\\Leave-Share\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex

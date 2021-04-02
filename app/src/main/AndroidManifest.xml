@@ -3,7 +3,7 @@
     package="kr.ac.kumoh.s20171278.map_map_challenge">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -18,14 +18,15 @@
 
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher_mapmap"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_mapmap_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".search.SearchTourActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".MainGoogleLoginActivity"></activity>
+        <activity android:name=".search.SearchTourActivity" />
         <activity android:name=".album.main.DetailTourActivity" />
         <activity android:name=".album.main.TourListActivity" />
         <activity android:name=".SplashActivity">
@@ -38,9 +39,9 @@
         <activity android:name=".select.main.SelectTapActivity" />
         <activity android:name=".share.main.ShareLoginActivity" />
         <activity android:name=".album.main.AlbumTabActivity" />
-        <activity android:name=".ui.main.SharedAlbumActivity" />
         <activity android:name=".ui.main.SharedTabActivity" />
-        <activity android:name=".album.main.AlbumListActivity" />
+   <!--     <activity android:name=".ui.main.SharedAlbumActivity" />
+        <activity android:name=".album.main.AlbumListActivity" /> !-->
         <activity
             android:name=".album.main.AlbumDetailMemoActivity"
             android:theme="@style/Theme.MyDialog" />

@@ -44,6 +44,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "608173978898-2lugrahj7a4c0r4n7j3732vrcecadk6v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.ac.kumoh.s20171278.map_map_challenge",
+            "certificate_hash": "050fddf135ce63df9e15115f732f11d742d181e2"
+          }
+        },
+        {
           "client_id": "608173978898-8v4hotvic0ma9l4fgou55crmg7t9acne.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -52,11 +60,19 @@
           }
         },
         {
-          "client_id": "608173978898-2lugrahj7a4c0r4n7j3732vrcecadk6v.apps.googleusercontent.com",
+          "client_id": "608173978898-is65e9roa7attp4qcjbtn0h448bhits4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "kr.ac.kumoh.s20171278.map_map_challenge",
-            "certificate_hash": "050fddf135ce63df9e15115f732f11d742d181e2"
+            "certificate_hash": "aaab9f547b0a3f478302221bc0948368eb3030ed"
+          }
+        },
+        {
+          "client_id": "608173978898-j8visnbjh6des31hul3df5uqmoc3u3b6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.ac.kumoh.s20171278.map_map_challenge",
+            "certificate_hash": "2ebd4d6e078e66a3e42d01068ce49d3667d46438"
           }
         },
         {

@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.viewpager.widget.ViewPager
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -69,7 +70,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     }
     val db = FirebaseFirestore.getInstance()
     val mStorage: FirebaseStorage = FirebaseStorage.getInstance()
-    val storageRef: StorageReference = mStorage.reference
 
     private var userUid: String? = null
     private var userName: String? = null
@@ -120,8 +120,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         //앨범 생성 버튼
         btnMakeAlbum.setOnClickListener {
-//            val permissionCheck = PermissionCheck(this, requestPermissions)
-//            permissionCheck.permissionCheck()
             showAlbumCreatePopup()
         }
 
@@ -183,7 +181,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show()
 
                 //로그인 ui로 보냄
-                val intent = Intent(applicationContext, MainLoginActivity::class.java)
+                val intent = Intent(applicationContext, MainGoogleLoginActivity::class.java)
                 startActivity(intent)
             }
             R.id.itemAlbum1 -> { // 앨범
@@ -199,13 +197,10 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 return true
             }
             R.id.itemTourSearch -> { // 관광지 정보 검색
-                Log.d("lll", "itemTourSearch")
                 val intent: Intent = Intent(this, SearchTourActivity::class.java)
                 startActivity(intent)
                 return true
             }
-
-
         }
         return false
     }
@@ -239,6 +234,9 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 val intent: Intent = Intent(this, SearchTourActivity::class.java)
                 startActivity(intent)
                 return true
+            }
+            R.id.itemSetting->{
+                Toast.makeText(this, "여기에 회원탈퇴 정보변경 이런거 만들자", Toast.LENGTH_SHORT).show()
             }
             R.id.itemLogout ->{
                 auth.signOut()
@@ -294,21 +292,8 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         var shareAlbumIndexList = shareAlbumIndex?.split(",")
         shareAlbumIndexList = shareAlbumIndexList?.dropLast(1)
 
-//        val shareAlbum = hashMapOf(
-//            "shareUserUid" to shareUserUid,
-//            "shareAlbumIndex" to shareAlbumIndexList
-//        )
-
         val db = FirebaseFirestore.getInstance()
         val tempArray: ArrayList<SelectImageActivity.dbSite> = arrayListOf()
-        // 앨범에 저장 하고 돌아와서 마지막에 shareAlbumList에 추가
-        // intent 성공 받으면 아래 데이터 저장
-//        db.collection("user").document("$userUid")
-//            .update("shareAlbumList", FieldValue.arrayUnion(shareAlbumName))
-
-//        db.collection("user").document("$userUid")
-//            .collection("ShareAlbum").document("$shareAlbumName")
-//            .set(shareAlbum)
 
         db.collection("user").document("$shareUserUid")
             .collection("$shareAlbumName").get()
@@ -340,12 +325,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
      //           tempArray.clear()
             }
 
-//        progressDialog.dismiss()
-//        val intent = Intent(this, ShareTapActivity::class.java)
-//        intent.putExtra(AlbumListActivity.ALBUM_DATA, tempArray)
-//        intent.putExtra(KEY_ALBUM_NAME, shareAlbumName)
-//        intent.putExtra(KEY_SHARE_USER_UID, shareUserUid)
-//        startActivity(intent)  // result 받는 형식으로 변경
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -46,6 +46,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
+        <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.MainGoogleLoginActivity" />
         <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.search.SearchTourActivity" />
         <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.album.main.DetailTourActivity" />
         <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.album.main.TourListActivity" />
@@ -59,9 +60,11 @@
         <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.select.main.SelectTapActivity" />
         <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.share.main.ShareLoginActivity" />
         <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity" />
-        <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedAlbumActivity" />
         <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedTabActivity" />
-        <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumListActivity" />
+        <!--
+            <activity android:name=".ui.main.SharedAlbumActivity" />
+        <activity android:name=".album.main.AlbumListActivity" /> !
+        -->
         <activity
             android:name="kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumDetailMemoActivity"
             android:theme="@style/Theme.MyDialog" />
@@ -100,27 +103,17 @@
             </intent-filter>
         </activity>
         <activity android:name="kr.ac.kumoh.s20171278.map_map_challenge.share.main.ShareTapActivity" />
-        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
-        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
-        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" />
-
-        <service
-            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
-            android:exported="false" />
-        <service
-            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
-            android:exported="false" />
-        <service
-            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
-            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
             android:directBootAware="true"
             android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
@@ -144,13 +137,71 @@
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
 
+        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
+        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
+        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" />
+
+        <service
+            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+            android:exported="false" />
+        <service
+            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
+            android:exported="false" />
+        <service
+            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
+            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
         <activity
-            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleTask"
-            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="firebase.auth"
+                    android:path="/"
+                    android:scheme="genericidp" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="firebase.auth"
+                    android:path="/"
+                    android:scheme="recaptcha" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.firebase.auth.api.gms.service.START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name="com.google.android.gms.appinvite.PreviewActivity"
             android:exported="true"
@@ -161,6 +212,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+            Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+            android:visibleToInstantApps="true" />
 
         <receiver
             android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
@@ -182,16 +247,17 @@
             </intent-filter>
         </service>
 
-        <provider
-            android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="kr.ac.kumoh.s20171278.map_map_challenge.firebaseinitprovider"
-            android:exported="false"
-            android:initOrder="100" />
-
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="kr.ac.kumoh.s20171278.map_map_challenge.firebaseinitprovider"
+            android:directBootAware="true"
+            android:exported="false"
+            android:initOrder="100" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
