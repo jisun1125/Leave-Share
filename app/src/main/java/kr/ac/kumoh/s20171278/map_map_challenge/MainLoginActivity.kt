@@ -45,7 +45,7 @@ class MainLoginActivity : AppCompatActivity() {
                     else {
                         // If sign in fails, display a message to the user.
                         Log.w("login", "LogIn:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
                     }
                 }
         }

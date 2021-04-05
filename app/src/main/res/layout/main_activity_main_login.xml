@@ -9,10 +9,12 @@
     tools:context=".MainLoginActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:layout_margin="10dp">
 
         <TextView
@@ -25,17 +27,19 @@
 
         <EditText
             android:id="@+id/userEmail"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Email"
             android:inputType="textEmailAddress"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:layout_margin="10dp">
 
         <TextView
@@ -48,7 +52,7 @@
 
         <EditText
             android:id="@+id/userPass"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Password"
             android:inputType="textPassword"/>
@@ -56,7 +60,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
         android:layout_margin="10dp">

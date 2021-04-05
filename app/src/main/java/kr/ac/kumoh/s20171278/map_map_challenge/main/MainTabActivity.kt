@@ -82,23 +82,6 @@ class MainTabActivity : AppCompatActivity() {
             progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal)
             progressDialog.show()
 
-//            val bitmapArray: ArrayList<Bitmap?> = arrayListOf()
-//            for (i in 0 until albumData.size) {
-//                val image = albumData[i].imageArray
-//                for (j in 0 until image!!.size) {
-//                    val imageUri: Uri = Uri.parse(image[j])
-//                    var bitmap: Bitmap? = null
-//                    bitmap = resize(this, imageUri, 500)
-//                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-//                        Log.d("ssss bit size", "${bitmap?.allocationByteCount}")
-//                    }
-//                    bitmapArray.add(bitmap)
-//                }
-//            }
-
-         //   Log.d("ssss bitmap array", "$bitmapArray")
-            // image resize process
-
             val auth = FirebaseAuth.getInstance()
             let {
                 userUid = auth.currentUser?.uid
@@ -153,7 +136,7 @@ class MainTabActivity : AppCompatActivity() {
     }
 
 //    suspend fun uploadPhotos(photosUri: ArrayList<Bitmap>, albumIndex: Int){
-    suspend fun uploadPhotos(photosUri: ArrayList<String>, albumIndex: Int){
+    private suspend fun uploadPhotos(photosUri: ArrayList<String>, albumIndex: Int){
         val tempPathString: String = "$userUid/$albumName/$albumIndex"
         val riversRef: StorageReference = storageRef.child(tempPathString)
 //        val photosUrls = ArrayList<PhotoUrl>()
