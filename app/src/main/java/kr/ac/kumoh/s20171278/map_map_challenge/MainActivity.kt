@@ -48,6 +48,7 @@ import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity.Compa
 import kr.ac.kumoh.s20171278.map_map_challenge.album.main.AlbumTabActivity.Companion.KEY_USER_UID
 import kr.ac.kumoh.s20171278.map_map_challenge.home.HomeSectionsPagerAdapter
 import kr.ac.kumoh.s20171278.map_map_challenge.search.SearchTourActivity
+import kr.ac.kumoh.s20171278.map_map_challenge.setting.SettingActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.share.main.ShareTapActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedAlbumActivity
 import kr.ac.kumoh.s20171278.map_map_challenge.ui.main.SharedTabActivity
@@ -196,6 +197,12 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 startActivity(intent)
                 return true
             }
+            R.id.itemSetting->{
+                Toast.makeText(this,"환경설정", Toast.LENGTH_SHORT).show()
+                val intent: Intent = Intent(this, SettingActivity::class.java)
+                startActivity(intent)
+                return true
+            }
             R.id.itemTourSearch -> { // 관광지 정보 검색
                 val intent: Intent = Intent(this, SearchTourActivity::class.java)
                 startActivity(intent)
@@ -231,12 +238,15 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             }
             R.id.itemTourSearch -> { // 관광지 정보 검색
                 Log.d("lll", "itemTourSearch")
-                val intent: Intent = Intent(this, SearchTourActivity::class.java)
+                val intent: Intent = Intent(applicationContext, SearchTourActivity::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.itemSetting->{
-                Toast.makeText(this, "여기에 회원탈퇴 정보변경 이런거 만들자", Toast.LENGTH_SHORT).show()
+              //  Toast.makeText(this,"환경설정", Toast.LENGTH_SHORT).show()
+                val intent: Intent = Intent(applicationContext, SettingActivity::class.java)
+                startActivity(intent)
+                return true
             }
             R.id.itemLogout ->{
                 auth.signOut()

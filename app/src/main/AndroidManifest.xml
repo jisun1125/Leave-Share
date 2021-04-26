@@ -25,7 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainGoogleLoginActivity"></activity>
+        <activity android:name=".setting.SettingActivity"
+            android:theme="@style/AppThemeActionBar"/>
+        <activity android:name=".MainGoogleLoginActivity" />
         <activity android:name=".search.SearchTourActivity" />
         <activity android:name=".album.main.DetailTourActivity" />
         <activity android:name=".album.main.TourListActivity" />
@@ -40,8 +42,10 @@
         <activity android:name=".share.main.ShareLoginActivity" />
         <activity android:name=".album.main.AlbumTabActivity" />
         <activity android:name=".ui.main.SharedTabActivity" />
-   <!--     <activity android:name=".ui.main.SharedAlbumActivity" />
-        <activity android:name=".album.main.AlbumListActivity" /> !-->
+        <!--
+     <activity android:name=".ui.main.SharedAlbumActivity" />
+        <activity android:name=".album.main.AlbumListActivity" /> !
+        -->
         <activity
             android:name=".album.main.AlbumDetailMemoActivity"
             android:theme="@style/Theme.MyDialog" />
